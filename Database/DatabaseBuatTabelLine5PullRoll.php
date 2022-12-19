@@ -1,0 +1,252 @@
+<?php
+	include 'koneksi.php';
+	
+	$cek = mysql_select_db('checklist');
+	if($cek)
+	{
+		//echo "<br>Database Benar</br>";
+			   
+		$tabel = 'CREATE TABLE form_checklist_line_5_PullRoll( '.
+				'Tanggal DATE NOT NULL, '.
+				'Nama VARCHAR(30) NOT NULL, '.
+				'DC_PullRoll1_VMDE FLOAT(30) NOT NULL, '.
+				'DC_PullRoll1_VMNDEA FLOAT(30) NOT NULL, '.
+				'DC_PullRoll1_VMNDER FLOAT(30) NOT NULL, '.
+				'DC_PullRoll1_TempM FLOAT(30) NOT NULL, '.
+				'DC_PullRoll1_ArusR FLOAT(30) NOT NULL, '.
+				'DC_PullRoll1_ArusS FLOAT(30) NOT NULL, '.
+				'DC_PullRoll1_ArusT FLOAT(30) NOT NULL, '.
+				'DC_PullRoll1_Ket VARCHAR(50) NOT NULL, '.
+				'Pull1_Fan_Cool_Blow_VMDE FLOAT(30) NOT NULL, '.
+				'Pull1_Fan_Cool_Blow_VMNDEA FLOAT(30) NOT NULL, '.
+				'Pull1_Fan_Cool_Blow_VMNDER FLOAT(30) NOT NULL, '.
+				'Pull1_Fan_Cool_Blow_TempM FLOAT(30) NOT NULL, '.
+				'Pull1_Fan_Cool_Blow_ArusR FLOAT(30) NOT NULL, '.
+				'Pull1_Fan_Cool_Blow_ArusS FLOAT(30) NOT NULL, '.
+				'Pull1_Fan_Cool_Blow_ArusT FLOAT(30) NOT NULL, '.
+				'Pull1_Fan_Cool_Blow_Ket VARCHAR(50) NOT NULL, '.
+				'DC_PullRoll2_VMDE FLOAT(30) NOT NULL, '.
+				'DC_PullRoll2_VMNDEA FLOAT(30) NOT NULL, '.
+				'DC_PullRoll2_VMNDER FLOAT(30) NOT NULL, '.
+				'DC_PullRoll2_TempM FLOAT(30) NOT NULL, '.
+				'DC_PullRoll2_ArusR FLOAT(30) NOT NULL, '.
+				'DC_PullRoll2_ArusS FLOAT(30) NOT NULL, '.
+				'DC_PullRoll2_ArusT FLOAT(30) NOT NULL, '.
+				'DC_PullRoll2_Ket VARCHAR(50) NOT NULL, '.
+				'Pull2_Fan_Cool_Blow_VMDE FLOAT(30) NOT NULL, '.
+				'Pull2_Fan_Cool_Blow_VMNDEA FLOAT(30) NOT NULL, '.
+				'Pull2_Fan_Cool_Blow_VMNDER FLOAT(30) NOT NULL, '.
+				'Pull2_Fan_Cool_Blow_TempM FLOAT(30) NOT NULL, '.
+				'Pull2_Fan_Cool_Blow_ArusR FLOAT(30) NOT NULL, '.
+				'Pull2_Fan_Cool_Blow_ArusS FLOAT(30) NOT NULL, '.
+				'Pull2_Fan_Cool_Blow_ArusT FLOAT(30) NOT NULL, '.
+				'Pull2_Fan_Cool_Blow_Ket VARCHAR(50) NOT NULL, '.
+				'DC_PullRoll3_VMDE FLOAT(30) NOT NULL, '.
+				'DC_PullRoll3_VMNDEA FLOAT(30) NOT NULL, '.
+				'DC_PullRoll3_VMNDER FLOAT(30) NOT NULL, '.
+				'DC_PullRoll3_TempM FLOAT(30) NOT NULL, '.
+				'DC_PullRoll3_ArusR FLOAT(30) NOT NULL, '.
+				'DC_PullRoll3_ArusS FLOAT(30) NOT NULL, '.
+				'DC_PullRoll3_ArusT FLOAT(30) NOT NULL, '.
+				'DC_PullRoll3_Ket VARCHAR(50) NOT NULL, '.
+				'Pull3_Fan_Cool_Blow_VMDE FLOAT(30) NOT NULL, '.
+				'Pull3_Fan_Cool_Blow_VMNDEA FLOAT(30) NOT NULL, '.
+				'Pull3_Fan_Cool_Blow_VMNDER FLOAT(30) NOT NULL, '.
+				'Pull3_Fan_Cool_Blow_TempM FLOAT(30) NOT NULL, '.
+				'Pull3_Fan_Cool_Blow_ArusR FLOAT(30) NOT NULL, '.
+				'Pull3_Fan_Cool_Blow_ArusS FLOAT(30) NOT NULL, '.
+				'Pull3_Fan_Cool_Blow_ArusT FLOAT(30) NOT NULL, '.
+				'Pull3_Fan_Cool_Blow_Ket VARCHAR(50) NOT NULL, '.
+				'DC_PullRoll4_VMDE FLOAT(30) NOT NULL, '.
+				'DC_PullRoll4_VMNDEA FLOAT(30) NOT NULL, '.
+				'DC_PullRoll4_VMNDER FLOAT(30) NOT NULL, '.
+				'DC_PullRoll4_TempM FLOAT(30) NOT NULL, '.
+				'DC_PullRoll4_ArusR FLOAT(30) NOT NULL, '.
+				'DC_PullRoll4_ArusS FLOAT(30) NOT NULL, '.
+				'DC_PullRoll4_ArusT FLOAT(30) NOT NULL, '.
+				'DC_PullRoll4_Ket VARCHAR(50) NOT NULL, '.
+				'Pull4_Fan_Cool_Blow_VMDE FLOAT(30) NOT NULL, '.
+				'Pull4_Fan_Cool_Blow_VMNDEA FLOAT(30) NOT NULL, '.
+				'Pull4_Fan_Cool_Blow_VMNDER FLOAT(30) NOT NULL, '.
+				'Pull4_Fan_Cool_Blow_TempM FLOAT(30) NOT NULL, '.
+				'Pull4_Fan_Cool_Blow_ArusR FLOAT(30) NOT NULL, '.
+				'Pull4_Fan_Cool_Blow_ArusS FLOAT(30) NOT NULL, '.
+				'Pull4_Fan_Cool_Blow_ArusT FLOAT(30) NOT NULL, '.
+				'Pull4_Fan_Cool_Blow_Ket VARCHAR(50) NOT NULL, '.
+				'DC_PullRoll5_VMDE FLOAT(30) NOT NULL, '.
+				'DC_PullRoll5_VMNDEA FLOAT(30) NOT NULL, '.
+				'DC_PullRoll5_VMNDER FLOAT(30) NOT NULL, '.
+				'DC_PullRoll5_TempM FLOAT(30) NOT NULL, '.
+				'DC_PullRoll5_ArusR FLOAT(30) NOT NULL, '.
+				'DC_PullRoll5_ArusS FLOAT(30) NOT NULL, '.
+				'DC_PullRoll5_ArusT FLOAT(30) NOT NULL, '.
+				'DC_PullRoll5_Ket VARCHAR(50) NOT NULL, '.
+				'Pull5_Fan_Cool_Blow_VMDE FLOAT(30) NOT NULL, '.
+				'Pull5_Fan_Cool_Blow_VMNDEA FLOAT(30) NOT NULL, '.
+				'Pull5_Fan_Cool_Blow_VMNDER FLOAT(30) NOT NULL, '.
+				'Pull5_Fan_Cool_Blow_TempM FLOAT(30) NOT NULL, '.
+				'Pull5_Fan_Cool_Blow_ArusR FLOAT(30) NOT NULL, '.
+				'Pull5_Fan_Cool_Blow_ArusS FLOAT(30) NOT NULL, '.
+				'Pull5_Fan_Cool_Blow_ArusT FLOAT(30) NOT NULL, '.
+				'Pull5_Fan_Cool_Blow_Ket VARCHAR(50) NOT NULL, '.
+				'Cool_Pump_HCU1_VMDE FLOAT(30) NOT NULL, '.
+				'Cool_Pump_HCU1_VMNDEA FLOAT(30) NOT NULL, '.
+				'Cool_Pump_HCU1_VMNDER FLOAT(30) NOT NULL, '.
+				'Cool_Pump_HCU1_TempM FLOAT(30) NOT NULL, '.
+				'Cool_Pump_HCU1_ArusR FLOAT(30) NOT NULL, '.
+				'Cool_Pump_HCU1_ArusS FLOAT(30) NOT NULL, '.
+				'Cool_Pump_HCU1_ArusT FLOAT(30) NOT NULL, '.
+				'Cool_Pump_HCU1_Ket VARCHAR(50) NOT NULL, '.
+				'Cool_Pump_HCU2_VMDE FLOAT(30) NOT NULL, '.
+				'Cool_Pump_HCU2_VMNDEA FLOAT(30) NOT NULL, '.
+				'Cool_Pump_HCU2_VMNDER FLOAT(30) NOT NULL, '.
+				'Cool_Pump_HCU2_TempM FLOAT(30) NOT NULL, '.
+				'Cool_Pump_HCU2_ArusR FLOAT(30) NOT NULL, '.
+				'Cool_Pump_HCU2_ArusS FLOAT(30) NOT NULL, '.
+				'Cool_Pump_HCU2_ArusT FLOAT(30) NOT NULL, '.
+				'Cool_Pump_HCU2_Ket VARCHAR(50) NOT NULL, '.
+				'Cool_Pump_HCU3_VMDE FLOAT(30) NOT NULL, '.
+				'Cool_Pump_HCU3_VMNDEA FLOAT(30) NOT NULL, '.
+				'Cool_Pump_HCU3_VMNDER FLOAT(30) NOT NULL, '.
+				'Cool_Pump_HCU3_TempM FLOAT(30) NOT NULL, '.
+				'Cool_Pump_HCU3_ArusR FLOAT(30) NOT NULL, '.
+				'Cool_Pump_HCU3_ArusS FLOAT(30) NOT NULL, '.
+				'Cool_Pump_HCU3_ArusT FLOAT(30) NOT NULL, '.
+				'Cool_Pump_HCU3_Ket VARCHAR(50) NOT NULL, '.
+				'Corona_Exh_Fan1_VMDE FLOAT(30) NOT NULL, '.
+				'Corona_Exh_Fan1_VMNDEA FLOAT(30) NOT NULL, '.
+				'Corona_Exh_Fan1_VMNDER FLOAT(30) NOT NULL, '.
+				'Corona_Exh_Fan1_TempM FLOAT(30) NOT NULL, '.
+				'Corona_Exh_Fan1_ArusR FLOAT(30) NOT NULL, '.
+				'Corona_Exh_Fan1_ArusS FLOAT(30) NOT NULL, '.
+				'Corona_Exh_Fan1_ArusT FLOAT(30) NOT NULL, '.
+				'Corona_Exh_Fan1_Ket VARCHAR(50) NOT NULL, '.
+				'Corona_Exh_Fan2_VMDE FLOAT(30) NOT NULL, '.
+				'Corona_Exh_Fan2_VMNDEA FLOAT(30) NOT NULL, '.
+				'Corona_Exh_Fan2_VMNDER FLOAT(30) NOT NULL, '.
+				'Corona_Exh_Fan2_TempM FLOAT(30) NOT NULL, '.
+				'Corona_Exh_Fan2_ArusR FLOAT(30) NOT NULL, '.
+				'Corona_Exh_Fan2_ArusS FLOAT(30) NOT NULL, '.
+				'Corona_Exh_Fan2_ArusT FLOAT(30) NOT NULL, '.
+				'Corona_Exh_Fan2_Ket VARCHAR(50) NOT NULL, '.
+				'Grinder_Exh_Fan_VMDE FLOAT(30) NOT NULL, '.
+				'Grinder_Exh_Fan_VMNDEA FLOAT(30) NOT NULL, '.
+				'Grinder_Exh_Fan_VMNDER FLOAT(30) NOT NULL, '.
+				'Grinder_Exh_Fan_TempM FLOAT(30) NOT NULL, '.
+				'Grinder_Exh_Fan_ArusR FLOAT(30) NOT NULL, '.
+				'Grinder_Exh_Fan_ArusS FLOAT(30) NOT NULL, '.
+				'Grinder_Exh_Fan_ArusT FLOAT(30) NOT NULL, '.
+				'Grinder_Exh_Fan_Ket VARCHAR(50) NOT NULL, '.
+				'Small_Grinder_VMDE FLOAT(30) NOT NULL, '.
+				'Small_Grinder_VMNDEA FLOAT(30) NOT NULL, '.
+				'Small_Grinder_VMNDER FLOAT(30) NOT NULL, '.
+				'Small_Grinder_TempM FLOAT(30) NOT NULL, '.
+				'Small_Grinder_ArusR FLOAT(30) NOT NULL, '.
+				'Small_Grinder_ArusS FLOAT(30) NOT NULL, '.
+				'Small_Grinder_ArusT FLOAT(30) NOT NULL, '.
+				'Small_Grinder_Ket VARCHAR(50) NOT NULL, '.
+				'Flake_Conv_Fan_VMDE FLOAT(30) NOT NULL, '.
+				'Flake_Conv_Fan_VMNDEA FLOAT(30) NOT NULL, '.
+				'Flake_Conv_Fan_VMNDER FLOAT(30) NOT NULL, '.
+				'Flake_Conv_Fan_TempM FLOAT(30) NOT NULL, '.
+				'Flake_Conv_Fan_ArusR FLOAT(30) NOT NULL, '.
+				'Flake_Conv_Fan_ArusS FLOAT(30) NOT NULL, '.
+				'Flake_Conv_Fan_ArusT FLOAT(30) NOT NULL, '.
+				'Flake_Conv_Fan_Ket VARCHAR(50) NOT NULL, '.
+				'Flame_Treat_Mix_Blow_VMDE FLOAT(30) NOT NULL, '.
+				'Flame_Treat_Mix_Blow_VMNDEA FLOAT(30) NOT NULL, '.
+				'Flame_Treat_Mix_Blow_VMNDER FLOAT(30) NOT NULL, '.
+				'Flame_Treat_Mix_Blow_TempM FLOAT(30) NOT NULL, '.
+				'Flame_Treat_Mix_Blow_ArusR FLOAT(30) NOT NULL, '.
+				'Flame_Treat_Mix_Blow_ArusS FLOAT(30) NOT NULL, '.
+				'Flame_Treat_Mix_Blow_ArusT FLOAT(30) NOT NULL, '.
+				'Flame_Treat_Mix_Blow_Ket VARCHAR(50) NOT NULL, '.
+				'Corona_Temp_VMDE FLOAT(30) NOT NULL, '.
+				'Corona_Temp_VMNDEA FLOAT(30) NOT NULL, '.
+				'Corona_Temp_VMNDER FLOAT(30) NOT NULL, '.
+				'Corona_Temp_TempM FLOAT(30) NOT NULL, '.
+				'Corona_Temp_ArusR FLOAT(30) NOT NULL, '.
+				'Corona_Temp_ArusS FLOAT(30) NOT NULL, '.
+				'Corona_Temp_ArusT FLOAT(30) NOT NULL, '.
+				'Corona_Temp_Ket VARCHAR(50) NOT NULL, '.
+				'Heater_HCU1_VMDE FLOAT(30) NOT NULL, '.
+				'Heater_HCU1_VMNDEA FLOAT(30) NOT NULL, '.
+				'Heater_HCU1_VMNDER FLOAT(30) NOT NULL, '.
+				'Heater_HCU1_TempM FLOAT(30) NOT NULL, '.
+				'Heater_HCU1_ArusR FLOAT(30) NOT NULL, '.
+				'Heater_HCU1_ArusS FLOAT(30) NOT NULL, '.
+				'Heater_HCU1_ArusT FLOAT(30) NOT NULL, '.
+				'Heater_HCU1_Ket VARCHAR(50) NOT NULL, '.
+				'Heater_HCU2_VMDE FLOAT(30) NOT NULL, '.
+				'Heater_HCU2_VMNDEA FLOAT(30) NOT NULL, '.
+				'Heater_HCU2_VMNDER FLOAT(30) NOT NULL, '.
+				'Heater_HCU2_TempM FLOAT(30) NOT NULL, '.
+				'Heater_HCU2_ArusR FLOAT(30) NOT NULL, '.
+				'Heater_HCU2_ArusS FLOAT(30) NOT NULL, '.
+				'Heater_HCU2_ArusT FLOAT(30) NOT NULL, '.
+				'Heater_HCU2_Ket VARCHAR(50) NOT NULL, '.
+				'Heater_HCU11_VMDE FLOAT(30) NOT NULL, '.
+				'Heater_HCU11_VMNDEA FLOAT(30) NOT NULL, '.
+				'Heater_HCU11_VMNDER FLOAT(30) NOT NULL, '.
+				'Heater_HCU11_TempM FLOAT(30) NOT NULL, '.
+				'Heater_HCU11_ArusR FLOAT(30) NOT NULL, '.
+				'Heater_HCU11_ArusS FLOAT(30) NOT NULL, '.
+				'Heater_HCU11_ArusT FLOAT(30) NOT NULL, '.
+				'Heater_HCU11_Ket VARCHAR(50) NOT NULL, '.
+				'Heater_HCU12_VMDE FLOAT(30) NOT NULL, '.
+				'Heater_HCU12_VMNDEA FLOAT(30) NOT NULL, '.
+				'Heater_HCU12_VMNDER FLOAT(30) NOT NULL, '.
+				'Heater_HCU12_TempM FLOAT(30) NOT NULL, '.
+				'Heater_HCU12_ArusR FLOAT(30) NOT NULL, '.
+				'Heater_HCU12_ArusS FLOAT(30) NOT NULL, '.
+				'Heater_HCU12_ArusT FLOAT(30) NOT NULL, '.
+				'Heater_HCU12_Ket VARCHAR(50) NOT NULL, '.
+				'Heater_HCU13_VMDE FLOAT(30) NOT NULL, '.
+				'Heater_HCU13_VMNDEA FLOAT(30) NOT NULL, '.
+				'Heater_HCU13_VMNDER FLOAT(30) NOT NULL, '.
+				'Heater_HCU13_TempM FLOAT(30) NOT NULL, '.
+				'Heater_HCU13_ArusR FLOAT(30) NOT NULL, '.
+				'Heater_HCU13_ArusS FLOAT(30) NOT NULL, '.
+				'Heater_HCU13_ArusT FLOAT(30) NOT NULL, '.
+				'Heater_HCU13_Ket VARCHAR(50) NOT NULL, '.
+				'Heater_HCU23_VMDE FLOAT(30) NOT NULL, '.
+				'Heater_HCU23_VMNDEA FLOAT(30) NOT NULL, '.
+				'Heater_HCU23_VMNDER FLOAT(30) NOT NULL, '.
+				'Heater_HCU23_TempM FLOAT(30) NOT NULL, '.
+				'Heater_HCU23_ArusR FLOAT(30) NOT NULL, '.
+				'Heater_HCU23_ArusS FLOAT(30) NOT NULL, '.
+				'Heater_HCU23_ArusT FLOAT(30) NOT NULL, '.
+				'Heater_HCU23_Ket VARCHAR(50) NOT NULL, '.
+				'Heater_HCU24_VMDE FLOAT(30) NOT NULL, '.
+				'Heater_HCU24_VMNDEA FLOAT(30) NOT NULL, '.
+				'Heater_HCU24_VMNDER FLOAT(30) NOT NULL, '.
+				'Heater_HCU24_TempM FLOAT(30) NOT NULL, '.
+				'Heater_HCU24_ArusR FLOAT(30) NOT NULL, '.
+				'Heater_HCU24_ArusS FLOAT(30) NOT NULL, '.
+				'Heater_HCU24_ArusT FLOAT(30) NOT NULL, '.
+				'Heater_HCU24_Ket VARCHAR(50) NOT NULL, '.
+				'Heater_HCU25_VMDE FLOAT(30) NOT NULL, '.
+				'Heater_HCU25_VMNDEA FLOAT(30) NOT NULL, '.
+				'Heater_HCU25_VMNDER FLOAT(30) NOT NULL, '.
+				'Heater_HCU25_TempM FLOAT(30) NOT NULL, '.
+				'Heater_HCU25_ArusR FLOAT(30) NOT NULL, '.
+				'Heater_HCU25_ArusS FLOAT(30) NOT NULL, '.
+				'Heater_HCU25_ArusT FLOAT(30) NOT NULL, '.
+				'Heater_HCU25_Ket VARCHAR(50) NOT NULL, '.
+				'primary key ( Tanggal ))';		
+		
+		$databasetabel = mysql_query( $tabel );
+		if($databasetabel)
+		{
+			echo "<h1>Tabel Berhasil Dibuat</h1></br>";
+		}
+		else
+		{
+			echo "<br><h1>Tabel Gagal Dibuat</h1></br>";
+		}
+	}
+	else
+	{
+		echo "<br>Database Salah</br>";
+	}
+?>

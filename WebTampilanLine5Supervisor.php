@@ -1,0 +1,2931 @@
+<<html>
+<body>
+
+<h1>Result Form Checklist Electrical Line 5</h1>
+
+<table border = 1 width = 1100>
+
+<?php
+include 'koneksi.php';
+	session_start();
+
+	$hari = $_POST['Hari'];
+	$bulan = $_POST['Bulan'];
+	$tahun = $_POST['Tahun'];
+
+	$_SESSION["tanggal"]="$tahun-$bulan-$hari";
+	
+	$query = mysql_query("SELECT * FROM `form_checklist_line_5_resinsilo` WHERE Tanggal='$tahun-$bulan-$hari' ");
+	$query1 = mysql_query("SELECT * FROM `form_checklist_line_5_ext` WHERE Tanggal='$tahun-$bulan-$hari' ");
+	$query2 = mysql_query("SELECT * FROM `form_checklist_line_5_chillrollmdo` WHERE Tanggal='$tahun-$bulan-$hari' ");
+	$query3 = mysql_query("SELECT * FROM `form_checklist_line_5_tdo` WHERE Tanggal='$tahun-$bulan-$hari' ");
+	$query4 = mysql_query("SELECT * FROM `form_checklist_line_5_pullroll` WHERE Tanggal='$tahun-$bulan-$hari' ");
+	$query5 = mysql_query("SELECT * FROM `form_checklist_line_5_winder` WHERE Tanggal='$tahun-$bulan-$hari' ");
+	$data = mysql_fetch_row($query);
+	$data1 = mysql_fetch_row($query1);
+	$data2 = mysql_fetch_row($query2);
+	$data3 = mysql_fetch_row($query3);
+	$data4 = mysql_fetch_row($query4);
+	$data5 = mysql_fetch_row($query5);
+	if($query=='0'){
+		echo"Data Casting Tidak Ada";
+	}
+	elseif($query1=='0'){
+		echo"Data MDO Tidak Ada";
+	}
+	else{
+		echo"<h3>Date :	 $hari-$bulan-$tahun</h3>";
+	}
+
+	echo"<h3>Nama Pelaksana :  $data[1]</h3>";
+	echo"<h3>Status :  $data[2]ed ($data[3])</h3>";
+
+	echo'
+		<tr>
+		<th rowspan="2">No</th>
+		<th rowspan="2">Resin ~ Silo</th>
+		<th colspan="3">Vibrasi Motor</th>
+		<th rowspan="2">Temperature</th>
+		<th colspan="3">Arus</th>
+		<th rowspan="2">Keterangan</th>
+			<tr>
+			<th>DE</th>
+			<th>NDE Axial</th>
+			<th>NDE Radial</th>
+			<th>R</th>
+			<th>S</th>
+			<th>T</th>
+			</tr>
+		</tr>
+	';
+
+	$i=0;
+	while($i<=4)
+	{
+		if($i==0){
+			echo"
+			<tr>
+			<td>1</td>
+			<td><a href='WebTrendLine5ResinSilo1.php'>Resin Transfer Blower Feeding Trench</a></td>
+			<td><center>".$data[$i+4]."</center></td>
+			<td><center>".$data[$i+5]."</center></td>
+			<td><center>".$data[$i+6]."</center></td>
+			<td><center>".$data[$i+7]."</center></td>
+			<td><center>".$data[$i+8]."</center></td>
+			<td><center>".$data[$i+9]."</center></td>
+			<td><center>".$data[$i+10]."</center></td>
+			<td><center>".$data[$i+11]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==1){
+			echo"
+			<tr>
+			<td>2</td>
+			<td><a href='WebTrendLine5ResinSilo2.php'>Resin Rotary Valve Feeding Trench</a></td>
+			<td><center>".$data[$i+11]."</center></td>
+			<td><center>".$data[$i+12]."</center></td>
+			<td><center>".$data[$i+13]."</center></td>
+			<td><center>".$data[$i+14]."</center></td>
+			<td><center>".$data[$i+15]."</center></td>
+			<td><center>".$data[$i+16]."</center></td>
+			<td><center>".$data[$i+17]."</center></td>
+			<td><center>".$data[$i+18]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==2){
+			echo"
+			<tr>
+			<td>3</td>
+			<td><a href='WebTrendLine5ResinSilo3.php'>Silo Conveying  Blower Fan</a></td>
+			<td><center>".$data[$i+18]."</center></td>
+			<td><center>".$data[$i+19]."</center></td>
+			<td><center>".$data[$i+20]."</center></td>
+			<td><center>".$data[$i+21]."</center></td>
+			<td><center>".$data[$i+22]."</center></td>
+			<td><center>".$data[$i+23]."</center></td>
+			<td><center>".$data[$i+24]."</center></td>
+			<td><center>".$data[$i+25]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==3){
+			echo"
+			<tr>
+			<td>4</td>
+			<td><a href='WebTrendLine5ResinSilo4.php'>Silo Rotary Valve</a></td>
+			<td><center>".$data[$i+25]."</center></td>
+			<td><center>".$data[$i+26]."</center></td>
+			<td><center>".$data[$i+27]."</center></td>
+			<td><center>".$data[$i+28]."</center></td>
+			<td><center>".$data[$i+29]."</center></td>
+			<td><center>".$data[$i+30]."</center></td>
+			<td><center>".$data[$i+31]."</center></td>
+			<td><center>".$data[$i+32]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==4){
+			echo"
+			<tr>
+			<td>5</td>
+			<td><a href='WebTrendLine5ResinSilo5.php'>Melt-Ext Vertical Mixer Screw</a></td>
+			<td><center>".$data[$i+32]."</center></td>
+			<td><center>".$data[$i+33]."</center></td>
+			<td><center>".$data[$i+34]."</center></td>
+			<td><center>".$data[$i+35]."</center></td>
+			<td><center>".$data[$i+36]."</center></td>
+			<td><center>".$data[$i+37]."</center></td>
+			<td><center>".$data[$i+38]."</center></td>
+			<td><center>".$data[$i+39]."</center></td>
+			</tr>
+			";
+		}
+		$i++;
+	}
+	
+	//
+	
+	echo'
+		<tr>
+		<th rowspan="2">No</th>
+		<th rowspan="2">Extruder</th>
+		<th colspan="3">Vibrasi Motor</th>
+		<th rowspan="2">Temperature</th>
+		<th colspan="3">Arus</th>
+		<th rowspan="2">Keterangan</th>
+			<tr>
+			<th>DE</th>
+			<th>NDE Axial</th>
+			<th>NDE Radial</th>
+			<th>R</th>
+			<th>S</th>
+			<th>T</th>
+			</tr>
+		</tr>
+	';
+
+	$i=0;
+	while($i<=70)
+	{
+		if($i==0){
+			echo"
+			<tr>
+			<td>1</td>
+			<td><a href='WebTrendLine5Ext1.php'>DC Melt-Ext</a></td>
+			<td><center>".$data1[$i+2]."</center></td>
+			<td><center>".$data1[$i+3]."</center></td>
+			<td><center>".$data1[$i+4]."</center></td>
+			<td><center>".$data1[$i+5]."</center></td>
+			<td><center>".$data1[$i+6]."</center></td>
+			<td><center>".$data1[$i+7]."</center></td>
+			<td><center>".$data1[$i+8]."</center></td>
+			<td><center>".$data1[$i+9]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==1){
+			echo"
+			<tr>
+			<td>2</td>
+			<td><a href='WebTrendLine5Ext2.php'>Melt-Ext Fan Cooling Blower</a></td>
+			<td><center>".$data1[$i+9]."</center></td>
+			<td><center>".$data1[$i+10]."</center></td>
+			<td><center>".$data1[$i+11]."</center></td>
+			<td><center>".$data1[$i+12]."</center></td>
+			<td><center>".$data1[$i+13]."</center></td>
+			<td><center>".$data1[$i+14]."</center></td>
+			<td><center>".$data1[$i+15]."</center></td>
+			<td><center>".$data1[$i+16]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==2){
+			echo"
+			<tr>
+			<td>3</td>
+			<td><a href='WebTrendLine5Ext3.php'>DC Metering-Ext</a></td>
+			<td><center>".$data1[$i+16]."</center></td>
+			<td><center>".$data1[$i+17]."</center></td>
+			<td><center>".$data1[$i+18]."</center></td>
+			<td><center>".$data1[$i+19]."</center></td>
+			<td><center>".$data1[$i+20]."</center></td>
+			<td><center>".$data1[$i+21]."</center></td>
+			<td><center>".$data1[$i+22]."</center></td>
+			<td><center>".$data1[$i+23]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==3){
+			echo"
+			<tr>
+			<td>4</td>
+			<td><a href='WebTrendLine5Ext4.php'>Metering-Ext Fan Cooling Blower</a></td>
+			<td><center>".$data1[$i+23]."</center></td>
+			<td><center>".$data1[$i+24]."</center></td>
+			<td><center>".$data1[$i+25]."</center></td>
+			<td><center>".$data1[$i+26]."</center></td>
+			<td><center>".$data1[$i+27]."</center></td>
+			<td><center>".$data1[$i+28]."</center></td>
+			<td><center>".$data1[$i+29]."</center></td>
+			<td><center>".$data1[$i+30]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==4){
+			echo"
+			<tr>
+			<td>5</td>
+			<td><a href='WebTrendLine5Ext5.php'>DC Co-Ext 1 </a></td>
+			<td><center>".$data1[$i+30]."</center></td>
+			<td><center>".$data1[$i+31]."</center></td>
+			<td><center>".$data1[$i+32]."</center></td>
+			<td><center>".$data1[$i+33]."</center></td>
+			<td><center>".$data1[$i+34]."</center></td>
+			<td><center>".$data1[$i+35]."</center></td>
+			<td><center>".$data1[$i+36]."</center></td>
+			<td><center>".$data1[$i+37]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==5){
+			echo"
+			<tr>
+			<td>6</td>
+			<td><a href='WebTrendLine5Ext6.php'>Co-Ext1 Fan Cooling Blower</a></td>
+			<td><center>".$data1[$i+37]."</center></td>
+			<td><center>".$data1[$i+38]."</center></td>
+			<td><center>".$data1[$i+39]."</center></td>
+			<td><center>".$data1[$i+40]."</center></td>
+			<td><center>".$data1[$i+41]."</center></td>
+			<td><center>".$data1[$i+42]."</center></td>
+			<td><center>".$data1[$i+43]."</center></td>
+			<td><center>".$data1[$i+44]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==6){
+			echo"
+			<tr>
+			<td>7</td>
+			<td><a href='WebTrendLine5Ext7.php'>DC Co-Ext 2</a></td>
+			<td><center>".$data1[$i+44]."</center></td>
+			<td><center>".$data1[$i+45]."</center></td>
+			<td><center>".$data1[$i+46]."</center></td>
+			<td><center>".$data1[$i+47]."</center></td>
+			<td><center>".$data1[$i+48]."</center></td>
+			<td><center>".$data1[$i+49]."</center></td>
+			<td><center>".$data1[$i+50]."</center></td>
+			<td><center>".$data1[$i+51]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==7){
+			echo"
+			<tr>
+			<td>8</td>
+			<td><a href='WebTrendLine5Ext8.php'>Co-Ext2 Fan Cooling Blower</a></td>
+			<td><center>".$data1[$i+51]."</center></td>
+			<td><center>".$data1[$i+52]."</center></td>
+			<td><center>".$data1[$i+53]."</center></td>
+			<td><center>".$data1[$i+54]."</center></td>
+			<td><center>".$data1[$i+55]."</center></td>
+			<td><center>".$data1[$i+56]."</center></td>
+			<td><center>".$data1[$i+57]."</center></td>
+			<td><center>".$data1[$i+58]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==8){
+			echo"
+			<tr>
+			<td>9</td>
+			<td><a href='WebTrendLine5Ext9.php'>Melt-Ext Gear Box Oil Pump</a></td>
+			<td><center>".$data1[$i+58]."</center></td>
+			<td><center>".$data1[$i+59]."</center></td>
+			<td><center>".$data1[$i+60]."</center></td>
+			<td><center>".$data1[$i+61]."</center></td>
+			<td><center>".$data1[$i+62]."</center></td>
+			<td><center>".$data1[$i+63]."</center></td>
+			<td><center>".$data1[$i+64]."</center></td>
+			<td><center>".$data1[$i+65]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==9){
+			echo"
+			<tr>
+			<td>10</td>
+			<td><a href='WebTrendLine5Ext10.php'>Melt-Ext Gear Box Oil Pump 1</a></td>
+			<td><center>".$data1[$i+65]."</center></td>
+			<td><center>".$data1[$i+66]."</center></td>
+			<td><center>".$data1[$i+67]."</center></td>
+			<td><center>".$data1[$i+68]."</center></td>
+			<td><center>".$data1[$i+69]."</center></td>
+			<td><center>".$data1[$i+70]."</center></td>
+			<td><center>".$data1[$i+71]."</center></td>
+			<td><center>".$data1[$i+72]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==10){
+			echo"
+			<tr>
+			<td>11</td>
+			<td><a href='WebTrendLine5Ext11.php'>Melt-Ext Filter Preheating Oil Pump 2</a></td>
+			<td><center>".$data1[$i+72]."</center></td>
+			<td><center>".$data1[$i+73]."</center></td>
+			<td><center>".$data1[$i+74]."</center></td>
+			<td><center>".$data1[$i+75]."</center></td>
+			<td><center>".$data1[$i+76]."</center></td>
+			<td><center>".$data1[$i+77]."</center></td>
+			<td><center>".$data1[$i+78]."</center></td>
+			<td><center>".$data1[$i+79]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==11){
+		echo"
+			<tr>
+			<td>12</td>
+			<td><a href='WebTrendLine5Ext12.php'>Metering-Ext Gear Box Oil Pump</a></td>
+			<td><center>".$data1[$i+79]."</center></td>
+			<td><center>".$data1[$i+80]."</center></td>
+			<td><center>".$data1[$i+81]."</center></td>
+			<td><center>".$data1[$i+82]."</center></td>
+			<td><center>".$data1[$i+83]."</center></td>
+			<td><center>".$data1[$i+84]."</center></td>
+			<td><center>".$data1[$i+85]."</center></td>
+			<td><center>".$data1[$i+86]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==12){
+		echo"
+			<tr>
+			<td>13</td>
+			<td><a href='WebTrendLine5Ext13.php'>Co-Ext 1 Auto Loader</a></td>
+			<td><center>".$data1[$i+86]."</center></td>
+			<td><center>".$data1[$i+87]."</center></td>
+			<td><center>".$data1[$i+88]."</center></td>
+			<td><center>".$data1[$i+89]."</center></td>
+			<td><center>".$data1[$i+90]."</center></td>
+			<td><center>".$data1[$i+91]."</center></td>
+			<td><center>".$data1[$i+92]."</center></td>
+			<td><center>".$data1[$i+93]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==13){
+		echo"
+			<tr>
+			<td>14</td>
+			<td><a href='WebTrendLine5Ext14.php'>Co-Ext 2 Auto Loader</a></td>
+			<td><center>".$data1[$i+93]."</center></td>
+			<td><center>".$data1[$i+94]."</center></td>
+			<td><center>".$data1[$i+95]."</center></td>
+			<td><center>".$data1[$i+96]."</center></td>
+			<td><center>".$data1[$i+97]."</center></td>
+			<td><center>".$data1[$i+98]."</center></td>
+			<td><center>".$data1[$i+99]."</center></td>
+			<td><center>".$data1[$i+100]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==14){
+		echo"
+			<tr>
+			<td>15</td>
+			<td><a href='WebTrendLine5Ext15.php'>EA Panel Temperature</a></td>
+			<td><center>".$data1[$i+100]."</center></td>
+			<td><center>".$data1[$i+101]."</center></td>
+			<td><center>".$data1[$i+102]."</center></td>
+			<td><center>".$data1[$i+103]."</center></td>
+			<td><center>".$data1[$i+104]."</center></td>
+			<td><center>".$data1[$i+105]."</center></td>
+			<td><center>".$data1[$i+106]."</center></td>
+			<td><center>".$data1[$i+107]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==15){
+		echo"
+			<tr>
+			<td>16</td>
+			<td><a href='WebTrendLine5Ext16.php'>Cascade-Ext Panel Temperature</a></td>
+			<td><center>".$data1[$i+107]."</center></td>
+			<td><center>".$data1[$i+108]."</center></td>
+			<td><center>".$data1[$i+109]."</center></td>
+			<td><center>".$data1[$i+110]."</center></td>
+			<td><center>".$data1[$i+111]."</center></td>
+			<td><center>".$data1[$i+112]."</center></td>
+			<td><center>".$data1[$i+113]."</center></td>
+			<td><center>".$data1[$i+114]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==16){
+		echo"
+			<tr>
+			<td>17</td>
+			<td><a href='WebTrendLine5Ext17.php'>Control Room Temperature</a></td>
+			<td><center>".$data1[$i+114]."</center></td>
+			<td><center>".$data1[$i+115]."</center></td>
+			<td><center>".$data1[$i+116]."</center></td>
+			<td><center>".$data1[$i+117]."</center></td>
+			<td><center>".$data1[$i+118]."</center></td>
+			<td><center>".$data1[$i+119]."</center></td>
+			<td><center>".$data1[$i+120]."</center></td>
+			<td><center>".$data1[$i+121]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==17){
+		echo"
+			<tr>
+			<td>18</td>
+			<td><a href='WebTrendLine5Ext18.php'>Melt-Ext Heater HCU Zone 1</a></td>
+			<td><center>".$data1[$i+121]."</center></td>
+			<td><center>".$data1[$i+122]."</center></td>
+			<td><center>".$data1[$i+123]."</center></td>
+			<td><center>".$data1[$i+124]."</center></td>
+			<td><center>".$data1[$i+125]."</center></td>
+			<td><center>".$data1[$i+126]."</center></td>
+			<td><center>".$data1[$i+127]."</center></td>
+			<td><center>".$data1[$i+128]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==18){
+		echo"
+			<tr>
+			<td>19</td>
+			<td><a href='WebTrendLine5Ext19.php'>Melt-Ext Heater HCU Zone 2</a></td>
+			<td><center>".$data1[$i+128]."</center></td>
+			<td><center>".$data1[$i+129]."</center></td>
+			<td><center>".$data1[$i+130]."</center></td>
+			<td><center>".$data1[$i+131]."</center></td>
+			<td><center>".$data1[$i+132]."</center></td>
+			<td><center>".$data1[$i+133]."</center></td>
+			<td><center>".$data1[$i+134]."</center></td>
+			<td><center>".$data1[$i+135]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==19){
+		echo"
+			<tr>
+			<td>20</td>
+			<td><a href='WebTrendLine5Ext20.php'>Melt-Ext Heater HCU Zone 3</a></td>
+			<td><center>".$data1[$i+135]."</center></td>
+			<td><center>".$data1[$i+136]."</center></td>
+			<td><center>".$data1[$i+137]."</center></td>
+			<td><center>".$data1[$i+138]."</center></td>
+			<td><center>".$data1[$i+139]."</center></td>
+			<td><center>".$data1[$i+140]."</center></td>
+			<td><center>".$data1[$i+141]."</center></td>
+			<td><center>".$data1[$i+142]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==20){
+		echo"
+			<tr>
+			<td>21</td>
+			<td><a href='WebTrendLine5Ext21.php'>Melt-Ext Heater HCU Zone 4</a></td>
+			<td><center>".$data1[$i+142]."</center></td>
+			<td><center>".$data1[$i+143]."</center></td>
+			<td><center>".$data1[$i+144]."</center></td>
+			<td><center>".$data1[$i+145]."</center></td>
+			<td><center>".$data1[$i+146]."</center></td>
+			<td><center>".$data1[$i+147]."</center></td>
+			<td><center>".$data1[$i+148]."</center></td>
+			<td><center>".$data1[$i+149]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==21){
+		echo"
+			<tr>
+			<td>22</td>
+			<td><a href='WebTrendLine5Ext22.php'>Melt-Ext Heater HCU Zone 5</a></td>
+			<td><center>".$data1[$i+149]."</center></td>
+			<td><center>".$data1[$i+150]."</center></td>
+			<td><center>".$data1[$i+151]."</center></td>
+			<td><center>".$data1[$i+152]."</center></td>
+			<td><center>".$data1[$i+153]."</center></td>
+			<td><center>".$data1[$i+154]."</center></td>
+			<td><center>".$data1[$i+155]."</center></td>
+			<td><center>".$data1[$i+156]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==22){
+		echo"
+			<tr>
+			<td>23</td>
+			<td><a href='WebTrendLine5Ext23.php'>Melt-Ext Heater HCU Zone 6</a></td>
+			<td><center>".$data1[$i+156]."</center></td>
+			<td><center>".$data1[$i+157]."</center></td>
+			<td><center>".$data1[$i+158]."</center></td>
+			<td><center>".$data1[$i+159]."</center></td>
+			<td><center>".$data1[$i+160]."</center></td>
+			<td><center>".$data1[$i+161]."</center></td>
+			<td><center>".$data1[$i+162]."</center></td>
+			<td><center>".$data1[$i+163]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==23){
+		echo"
+			<tr>
+			<td>24</td>
+			<td><a href='WebTrendLine5Ext24.php'>Melt-Ext Heater HCU Zone 7</a></td>
+			<td><center>".$data1[$i+163]."</center></td>
+			<td><center>".$data1[$i+164]."</center></td>
+			<td><center>".$data1[$i+165]."</center></td>
+			<td><center>".$data1[$i+166]."</center></td>
+			<td><center>".$data1[$i+167]."</center></td>
+			<td><center>".$data1[$i+168]."</center></td>
+			<td><center>".$data1[$i+169]."</center></td>
+			<td><center>".$data1[$i+170]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==24){
+		echo"
+			<tr>
+			<td>25</td>
+			<td><a href='WebTrendLine5Ext25.php'>Melt-Ext Heater HCU Zone 8</a></td>
+			<td><center>".$data1[$i+170]."</center></td>
+			<td><center>".$data1[$i+171]."</center></td>
+			<td><center>".$data1[$i+172]."</center></td>
+			<td><center>".$data1[$i+173]."</center></td>
+			<td><center>".$data1[$i+174]."</center></td>
+			<td><center>".$data1[$i+175]."</center></td>
+			<td><center>".$data1[$i+176]."</center></td>
+			<td><center>".$data1[$i+177]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==25){
+		echo"
+			<tr>
+			<td>26</td>
+			<td><a href='WebTrendLine5Ext26.php'>Melt-Ext Heater HCU Zone 9</a></td>
+			<td><center>".$data1[$i+177]."</center></td>
+			<td><center>".$data1[$i+178]."</center></td>
+			<td><center>".$data1[$i+179]."</center></td>
+			<td><center>".$data1[$i+180]."</center></td>
+			<td><center>".$data1[$i+181]."</center></td>
+			<td><center>".$data1[$i+182]."</center></td>
+			<td><center>".$data1[$i+183]."</center></td>
+			<td><center>".$data1[$i+184]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==26){
+		echo"
+			<tr>
+			<td>27</td>
+			<td><a href='WebTrendLine5Ext27.php'>Metering-Ext Heater HCU Zone 1</a></td>
+			<td><center>".$data1[$i+184]."</center></td>
+			<td><center>".$data1[$i+185]."</center></td>
+			<td><center>".$data1[$i+186]."</center></td>
+			<td><center>".$data1[$i+187]."</center></td>
+			<td><center>".$data1[$i+188]."</center></td>
+			<td><center>".$data1[$i+189]."</center></td>
+			<td><center>".$data1[$i+190]."</center></td>
+			<td><center>".$data1[$i+191]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==27){
+		echo"
+			<tr>
+			<td>28</td>
+			<td><a href='WebTrendLine5Ext28.php'>Metering-Ext Heater HCU Zone 2</a></td>
+			<td><center>".$data1[$i+191]."</center></td>
+			<td><center>".$data1[$i+192]."</center></td>
+			<td><center>".$data1[$i+193]."</center></td>
+			<td><center>".$data1[$i+194]."</center></td>
+			<td><center>".$data1[$i+195]."</center></td>
+			<td><center>".$data1[$i+196]."</center></td>
+			<td><center>".$data1[$i+197]."</center></td>
+			<td><center>".$data1[$i+198]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==28){
+		echo"
+			<tr>
+			<td>29</td>
+			<td><a href='WebTrendLine5Ext29.php'>Metering-Ext Heater HCU Zone 3</a></td>
+			<td><center>".$data1[$i+198]."</center></td>
+			<td><center>".$data1[$i+199]."</center></td>
+			<td><center>".$data1[$i+200]."</center></td>
+			<td><center>".$data1[$i+201]."</center></td>
+			<td><center>".$data1[$i+202]."</center></td>
+			<td><center>".$data1[$i+203]."</center></td>
+			<td><center>".$data1[$i+204]."</center></td>
+			<td><center>".$data1[$i+205]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==29){
+		echo"
+			<tr>
+			<td>30</td>
+			<td><a href='WebTrendLine5Ext30.php'>Metering-Ext Heater HCU Zone 4</a></td>
+			<td><center>".$data1[$i+205]."</center></td>
+			<td><center>".$data1[$i+206]."</center></td>
+			<td><center>".$data1[$i+207]."</center></td>
+			<td><center>".$data1[$i+208]."</center></td>
+			<td><center>".$data1[$i+209]."</center></td>
+			<td><center>".$data1[$i+210]."</center></td>
+			<td><center>".$data1[$i+211]."</center></td>
+			<td><center>".$data1[$i+212]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==30){
+		echo"
+			<tr>
+			<td>31</td>
+			<td><a href='WebTrendLine5Ext31.php'>Metering-Ext Heater HCU Zone 5</a></td>
+			<td><center>".$data1[$i+212]."</center></td>
+			<td><center>".$data1[$i+213]."</center></td>
+			<td><center>".$data1[$i+214]."</center></td>
+			<td><center>".$data1[$i+215]."</center></td>
+			<td><center>".$data1[$i+216]."</center></td>
+			<td><center>".$data1[$i+217]."</center></td>
+			<td><center>".$data1[$i+218]."</center></td>
+			<td><center>".$data1[$i+219]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==31){
+		echo"
+			<tr>
+			<td>32</td>
+			<td><a href='WebTrendLine5Ext32.php'>Metering-Ext Heater HCU Zone 6</a></td>
+			<td><center>".$data1[$i+219]."</center></td>
+			<td><center>".$data1[$i+220]."</center></td>
+			<td><center>".$data1[$i+221]."</center></td>
+			<td><center>".$data1[$i+222]."</center></td>
+			<td><center>".$data1[$i+223]."</center></td>
+			<td><center>".$data1[$i+224]."</center></td>
+			<td><center>".$data1[$i+225]."</center></td>
+			<td><center>".$data1[$i+226]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==32){
+		echo"
+			<tr>
+			<td>33</td>
+			<td><a href='WebTrendLine5Ext33.php'>Metering-Ext Heater HCU Zone 7</a></td>
+			<td><center>".$data1[$i+226]."</center></td>
+			<td><center>".$data1[$i+227]."</center></td>
+			<td><center>".$data1[$i+228]."</center></td>
+			<td><center>".$data1[$i+229]."</center></td>
+			<td><center>".$data1[$i+230]."</center></td>
+			<td><center>".$data1[$i+231]."</center></td>
+			<td><center>".$data1[$i+232]."</center></td>
+			<td><center>".$data1[$i+233]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==33){
+		echo"
+			<tr>
+			<td>34</td>
+			<td><a href='WebTrendLine5Ext34.php'>Metering-Ext Heater HCU Zone 8</a></td>
+			<td><center>".$data1[$i+233]."</center></td>
+			<td><center>".$data1[$i+234]."</center></td>
+			<td><center>".$data1[$i+235]."</center></td>
+			<td><center>".$data1[$i+236]."</center></td>
+			<td><center>".$data1[$i+237]."</center></td>
+			<td><center>".$data1[$i+238]."</center></td>
+			<td><center>".$data1[$i+239]."</center></td>
+			<td><center>".$data1[$i+240]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==34){
+		echo"
+			<tr>
+			<td>35</td>
+			<td><a href='WebTrendLine5Ext35.php'>Metering-Ext Heater HCU Zone 9</a></td>
+			<td><center>".$data1[$i+240]."</center></td>
+			<td><center>".$data1[$i+241]."</center></td>
+			<td><center>".$data1[$i+242]."</center></td>
+			<td><center>".$data1[$i+243]."</center></td>
+			<td><center>".$data1[$i+244]."</center></td>
+			<td><center>".$data1[$i+245]."</center></td>
+			<td><center>".$data1[$i+246]."</center></td>
+			<td><center>".$data1[$i+247]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==35){
+		echo"
+			<tr>
+			<td>36</td>
+			<td><a href='WebTrendLine5Ext36.php'>Metering-Ext Heater HCU Zone 10</a></td>
+			<td><center>".$data1[$i+247]."</center></td>
+			<td><center>".$data1[$i+248]."</center></td>
+			<td><center>".$data1[$i+249]."</center></td>
+			<td><center>".$data1[$i+250]."</center></td>
+			<td><center>".$data1[$i+251]."</center></td>
+			<td><center>".$data1[$i+252]."</center></td>
+			<td><center>".$data1[$i+253]."</center></td>
+			<td><center>".$data1[$i+254]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==36){
+		echo"
+			<tr>
+			<td>37</td>
+			<td><a href='WebTrendLine5Ext37.php'>Metering-Ext Heater HCU Zone 11</a></td>
+			<td><center>".$data1[$i+254]."</center></td>
+			<td><center>".$data1[$i+255]."</center></td>
+			<td><center>".$data1[$i+256]."</center></td>
+			<td><center>".$data1[$i+257]."</center></td>
+			<td><center>".$data1[$i+258]."</center></td>
+			<td><center>".$data1[$i+259]."</center></td>
+			<td><center>".$data1[$i+260]."</center></td>
+			<td><center>".$data1[$i+261]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==37){
+		echo"
+			<tr>
+			<td>38</td>
+			<td><a href='WebTrendLine5Ext38.php'>Metering-Ext Heater HCU Zone 12</a></td>
+			<td><center>".$data1[$i+261]."</center></td>
+			<td><center>".$data1[$i+262]."</center></td>
+			<td><center>".$data1[$i+263]."</center></td>
+			<td><center>".$data1[$i+264]."</center></td>
+			<td><center>".$data1[$i+265]."</center></td>
+			<td><center>".$data1[$i+266]."</center></td>
+			<td><center>".$data1[$i+267]."</center></td>
+			<td><center>".$data1[$i+268]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==38){
+		echo"
+			<tr>
+			<td>39</td>
+			<td><a href='WebTrendLine5Ext39.php'>Metering-Ext Heater HCU Zone 13</a></td>
+			<td><center>".$data1[$i+268]."</center></td>
+			<td><center>".$data1[$i+269]."</center></td>
+			<td><center>".$data1[$i+270]."</center></td>
+			<td><center>".$data1[$i+271]."</center></td>
+			<td><center>".$data1[$i+272]."</center></td>
+			<td><center>".$data1[$i+273]."</center></td>
+			<td><center>".$data1[$i+274]."</center></td>
+			<td><center>".$data1[$i+275]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==39){
+		echo"
+			<tr>
+			<td>40</td>
+			<td><a href='WebTrendLine5Ext40.php'>Metering-Ext Heater HCU Zone 14</a></td>
+			<td><center>".$data1[$i+275]."</center></td>
+			<td><center>".$data1[$i+276]."</center></td>
+			<td><center>".$data1[$i+277]."</center></td>
+			<td><center>".$data1[$i+278]."</center></td>
+			<td><center>".$data1[$i+279]."</center></td>
+			<td><center>".$data1[$i+280]."</center></td>
+			<td><center>".$data1[$i+281]."</center></td>
+			<td><center>".$data1[$i+282]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==40){
+		echo"
+			<tr>
+			<td>41</td>
+			<td><a href='WebTrendLine5Ext41.php'>Metering-Ext Heater HCU Zone 15</a></td>
+			<td><center>".$data1[$i+282]."</center></td>
+			<td><center>".$data1[$i+283]."</center></td>
+			<td><center>".$data1[$i+284]."</center></td>
+			<td><center>".$data1[$i+285]."</center></td>
+			<td><center>".$data1[$i+286]."</center></td>
+			<td><center>".$data1[$i+287]."</center></td>
+			<td><center>".$data1[$i+288]."</center></td>
+			<td><center>".$data1[$i+289]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==41){
+		echo"
+			<tr>
+			<td>42</td>
+			<td><a href='WebTrendLine5Ext42.php'>Metering-Ext Heater HCU Zone 16</a></td>
+			<td><center>".$data1[$i+289]."</center></td>
+			<td><center>".$data1[$i+290]."</center></td>
+			<td><center>".$data1[$i+291]."</center></td>
+			<td><center>".$data1[$i+292]."</center></td>
+			<td><center>".$data1[$i+293]."</center></td>
+			<td><center>".$data1[$i+294]."</center></td>
+			<td><center>".$data1[$i+295]."</center></td>
+			<td><center>".$data1[$i+296]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==42){
+		echo"
+			<tr>
+			<td>43</td>
+			<td><a href='WebTrendLine5Ext43.php'>Metering-Ext Heater HCU Zone 17</a></td>
+			<td><center>".$data1[$i+296]."</center></td>
+			<td><center>".$data1[$i+297]."</center></td>
+			<td><center>".$data1[$i+298]."</center></td>
+			<td><center>".$data1[$i+299]."</center></td>
+			<td><center>".$data1[$i+300]."</center></td>
+			<td><center>".$data1[$i+301]."</center></td>
+			<td><center>".$data1[$i+302]."</center></td>
+			<td><center>".$data1[$i+303]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==43){
+		echo"
+			<tr>
+			<td>44</td>
+			<td><a href='WebTrendLine5Ext44.php'>Metering-Ext Heater HCU Zone 18</a></td>
+			<td><center>".$data1[$i+303]."</center></td>
+			<td><center>".$data1[$i+304]."</center></td>
+			<td><center>".$data1[$i+305]."</center></td>
+			<td><center>".$data1[$i+306]."</center></td>
+			<td><center>".$data1[$i+307]."</center></td>
+			<td><center>".$data1[$i+308]."</center></td>
+			<td><center>".$data1[$i+309]."</center></td>
+			<td><center>".$data1[$i+310]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==44){
+		echo"
+			<tr>
+			<td>45</td>
+			<td><a href='WebTrendLine5Ext45.php'>Metering-Ext Heater HCU Zone 19</a></td>
+			<td><center>".$data1[$i+310]."</center></td>
+			<td><center>".$data1[$i+311]."</center></td>
+			<td><center>".$data1[$i+312]."</center></td>
+			<td><center>".$data1[$i+313]."</center></td>
+			<td><center>".$data1[$i+314]."</center></td>
+			<td><center>".$data1[$i+315]."</center></td>
+			<td><center>".$data1[$i+316]."</center></td>
+			<td><center>".$data1[$i+317]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==45){
+		echo"
+			<tr>
+			<td>46</td>
+			<td><a href='WebTrendLine5Ext46.php'>Metering-Ext Heater HCU Zone 20</a></td>
+			<td><center>".$data1[$i+317]."</center></td>
+			<td><center>".$data1[$i+318]."</center></td>
+			<td><center>".$data1[$i+319]."</center></td>
+			<td><center>".$data1[$i+320]."</center></td>
+			<td><center>".$data1[$i+321]."</center></td>
+			<td><center>".$data1[$i+322]."</center></td>
+			<td><center>".$data1[$i+323]."</center></td>
+			<td><center>".$data1[$i+324]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==46){
+		echo"
+			<tr>
+			<td>47</td>
+			<td><a href='WebTrendLine5Ext47.php'>Metering-Ext Heater HCU Zone 21</a></td>
+			<td><center>".$data1[$i+324]."</center></td>
+			<td><center>".$data1[$i+325]."</center></td>
+			<td><center>".$data1[$i+326]."</center></td>
+			<td><center>".$data1[$i+327]."</center></td>
+			<td><center>".$data1[$i+328]."</center></td>
+			<td><center>".$data1[$i+329]."</center></td>
+			<td><center>".$data1[$i+330]."</center></td>
+			<td><center>".$data1[$i+331]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==47){
+		echo"
+			<tr>
+			<td>48</td>
+			<td><a href='WebTrendLine5Ext48.php'>Metering-Ext Heater HCU Zone 22</a></td>
+			<td><center>".$data1[$i+331]."</center></td>
+			<td><center>".$data1[$i+332]."</center></td>
+			<td><center>".$data1[$i+333]."</center></td>
+			<td><center>".$data1[$i+334]."</center></td>
+			<td><center>".$data1[$i+335]."</center></td>
+			<td><center>".$data1[$i+336]."</center></td>
+			<td><center>".$data1[$i+337]."</center></td>
+			<td><center>".$data1[$i+338]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==48){
+		echo"
+			<tr>
+			<td>49</td>
+			<td><a href='WebTrendLine5Ext49.php'>Metering-Ext Heater HCU Zone 23</a></td>
+			<td><center>".$data1[$i+338]."</center></td>
+			<td><center>".$data1[$i+339]."</center></td>
+			<td><center>".$data1[$i+340]."</center></td>
+			<td><center>".$data1[$i+341]."</center></td>
+			<td><center>".$data1[$i+342]."</center></td>
+			<td><center>".$data1[$i+343]."</center></td>
+			<td><center>".$data1[$i+344]."</center></td>
+			<td><center>".$data1[$i+345]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==49){
+		echo"
+			<tr>
+			<td>50</td>
+			<td><a href='WebTrendLine5Ext50.php'>Co-Ext1 Heater HCU Zone 1</a></td>
+			<td><center>".$data1[$i+345]."</center></td>
+			<td><center>".$data1[$i+346]."</center></td>
+			<td><center>".$data1[$i+347]."</center></td>
+			<td><center>".$data1[$i+348]."</center></td>
+			<td><center>".$data1[$i+349]."</center></td>
+			<td><center>".$data1[$i+350]."</center></td>
+			<td><center>".$data1[$i+351]."</center></td>
+			<td><center>".$data1[$i+352]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==50){
+		echo"
+			<tr>
+			<td>51</td>
+			<td><a href='WebTrendLine5Ext51.php'>Co-Ext1 Heater HCU Zone 2</a></td>
+			<td><center>".$data1[$i+352]."</center></td>
+			<td><center>".$data1[$i+353]."</center></td>
+			<td><center>".$data1[$i+354]."</center></td>
+			<td><center>".$data1[$i+355]."</center></td>
+			<td><center>".$data1[$i+356]."</center></td>
+			<td><center>".$data1[$i+357]."</center></td>
+			<td><center>".$data1[$i+358]."</center></td>
+			<td><center>".$data1[$i+359]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==51){
+		echo"
+			<tr>
+			<td>52</td>
+			<td><a href='WebTrendLine5Ext52.php'>Co-Ext1 Heater HCU Zone 3</a></td>
+			<td><center>".$data1[$i+359]."</center></td>
+			<td><center>".$data1[$i+360]."</center></td>
+			<td><center>".$data1[$i+361]."</center></td>
+			<td><center>".$data1[$i+362]."</center></td>
+			<td><center>".$data1[$i+363]."</center></td>
+			<td><center>".$data1[$i+364]."</center></td>
+			<td><center>".$data1[$i+365]."</center></td>
+			<td><center>".$data1[$i+366]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==52){
+		echo"
+			<tr>
+			<td>53</td>
+			<td><a href='WebTrendLine5Ext53.php'>Co-Ext1 Heater HCU Zone 4</a></td>
+			<td><center>".$data1[$i+366]."</center></td>
+			<td><center>".$data1[$i+367]."</center></td>
+			<td><center>".$data1[$i+368]."</center></td>
+			<td><center>".$data1[$i+369]."</center></td>
+			<td><center>".$data1[$i+370]."</center></td>
+			<td><center>".$data1[$i+371]."</center></td>
+			<td><center>".$data1[$i+372]."</center></td>
+			<td><center>".$data1[$i+373]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==53){
+		echo"
+			<tr>
+			<td>54</td>
+			<td><a href='WebTrendLine5Ext54.php'>Co-Ext1 Heater HCU Zone 5</a></td>
+			<td><center>".$data1[$i+373]."</center></td>
+			<td><center>".$data1[$i+374]."</center></td>
+			<td><center>".$data1[$i+375]."</center></td>
+			<td><center>".$data1[$i+376]."</center></td>
+			<td><center>".$data1[$i+377]."</center></td>
+			<td><center>".$data1[$i+378]."</center></td>
+			<td><center>".$data1[$i+379]."</center></td>
+			<td><center>".$data1[$i+380]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==54){
+		echo"
+			<tr>
+			<td>55</td>
+			<td><a href='WebTrendLine5Ext55.php'>Co-Ext1 Heater HCU Zone 6</a></td>
+			<td><center>".$data1[$i+380]."</center></td>
+			<td><center>".$data1[$i+381]."</center></td>
+			<td><center>".$data1[$i+382]."</center></td>
+			<td><center>".$data1[$i+383]."</center></td>
+			<td><center>".$data1[$i+384]."</center></td>
+			<td><center>".$data1[$i+385]."</center></td>
+			<td><center>".$data1[$i+386]."</center></td>
+			<td><center>".$data1[$i+387]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==55){
+		echo"
+			<tr>
+			<td>56</td>
+			<td><a href='WebTrendLine5Ext56.php'>Co-Ext1 Heater HCU Zone 7</a></td>
+			<td><center>".$data1[$i+387]."</center></td>
+			<td><center>".$data1[$i+388]."</center></td>
+			<td><center>".$data1[$i+389]."</center></td>
+			<td><center>".$data1[$i+390]."</center></td>
+			<td><center>".$data1[$i+391]."</center></td>
+			<td><center>".$data1[$i+392]."</center></td>
+			<td><center>".$data1[$i+393]."</center></td>
+			<td><center>".$data1[$i+394]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==56){
+		echo"
+			<tr>
+			<td>57</td>
+			<td><a href='WebTrendLine5Ext57.php'>Co-Ext1 Heater HCU Zone 8</a></td>
+			<td><center>".$data1[$i+394]."</center></td>
+			<td><center>".$data1[$i+395]."</center></td>
+			<td><center>".$data1[$i+396]."</center></td>
+			<td><center>".$data1[$i+397]."</center></td>
+			<td><center>".$data1[$i+398]."</center></td>
+			<td><center>".$data1[$i+399]."</center></td>
+			<td><center>".$data1[$i+400]."</center></td>
+			<td><center>".$data1[$i+401]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==57){
+		echo"
+			<tr>
+			<td>58</td>
+			<td><a href='WebTrendLine5Ext58.php'>Co-Ext1 Heater HCU Zone 9</a></td>
+			<td><center>".$data1[$i+401]."</center></td>
+			<td><center>".$data1[$i+402]."</center></td>
+			<td><center>".$data1[$i+403]."</center></td>
+			<td><center>".$data1[$i+404]."</center></td>
+			<td><center>".$data1[$i+405]."</center></td>
+			<td><center>".$data1[$i+406]."</center></td>
+			<td><center>".$data1[$i+407]."</center></td>
+			<td><center>".$data1[$i+408]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==58){
+		echo"
+			<tr>
+			<td>59</td>
+			<td><a href='WebTrendLine5Ext59.php'>Co-Ext1 Heater HCU Zone 10</a></td>
+			<td><center>".$data1[$i+408]."</center></td>
+			<td><center>".$data1[$i+409]."</center></td>
+			<td><center>".$data1[$i+410]."</center></td>
+			<td><center>".$data1[$i+411]."</center></td>
+			<td><center>".$data1[$i+412]."</center></td>
+			<td><center>".$data1[$i+413]."</center></td>
+			<td><center>".$data1[$i+414]."</center></td>
+			<td><center>".$data1[$i+415]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==59){
+		echo"
+			<tr>
+			<td>60</td>
+			<td><a href='WebTrendLine5Ext60.php'>Co-Ext1 Heater HCU Zone 11</a></td>
+			<td><center>".$data1[$i+415]."</center></td>
+			<td><center>".$data1[$i+416]."</center></td>
+			<td><center>".$data1[$i+417]."</center></td>
+			<td><center>".$data1[$i+418]."</center></td>
+			<td><center>".$data1[$i+419]."</center></td>
+			<td><center>".$data1[$i+420]."</center></td>
+			<td><center>".$data1[$i+421]."</center></td>
+			<td><center>".$data1[$i+422]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==60){
+		echo"
+			<tr>
+			<td>61</td>
+			<td><a href='WebTrendLine5Ext61.php'>Co-Ext2 Heater HCU Zone 1</a></td>
+			<td><center>".$data1[$i+422]."</center></td>
+			<td><center>".$data1[$i+423]."</center></td>
+			<td><center>".$data1[$i+424]."</center></td>
+			<td><center>".$data1[$i+425]."</center></td>
+			<td><center>".$data1[$i+426]."</center></td>
+			<td><center>".$data1[$i+427]."</center></td>
+			<td><center>".$data1[$i+428]."</center></td>
+			<td><center>".$data1[$i+429]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==61){
+		echo"
+			<tr>
+			<td>62</td>
+			<td><a href='WebTrendLine5Ext62.php'>Co-Ext2 Heater HCU Zone 2</a></td>
+			<td><center>".$data1[$i+429]."</center></td>
+			<td><center>".$data1[$i+430]."</center></td>
+			<td><center>".$data1[$i+431]."</center></td>
+			<td><center>".$data1[$i+432]."</center></td>
+			<td><center>".$data1[$i+433]."</center></td>
+			<td><center>".$data1[$i+434]."</center></td>
+			<td><center>".$data1[$i+435]."</center></td>
+			<td><center>".$data1[$i+436]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==62){
+		echo"
+			<tr>
+			<td>63</td>
+			<td><a href='WebTrendLine5Ext63.php'>Co-Ext2 Heater HCU Zone 3</a></td>
+			<td><center>".$data1[$i+436]."</center></td>
+			<td><center>".$data1[$i+437]."</center></td>
+			<td><center>".$data1[$i+438]."</center></td>
+			<td><center>".$data1[$i+439]."</center></td>
+			<td><center>".$data1[$i+440]."</center></td>
+			<td><center>".$data1[$i+441]."</center></td>
+			<td><center>".$data1[$i+442]."</center></td>
+			<td><center>".$data1[$i+443]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==63){
+		echo"
+			<tr>
+			<td>64</td>
+			<td><a href='WebTrendLine5Ext64.php'>Co-Ext2 Heater HCU Zone 4</a></td>
+			<td><center>".$data1[$i+443]."</center></td>
+			<td><center>".$data1[$i+444]."</center></td>
+			<td><center>".$data1[$i+445]."</center></td>
+			<td><center>".$data1[$i+446]."</center></td>
+			<td><center>".$data1[$i+447]."</center></td>
+			<td><center>".$data1[$i+448]."</center></td>
+			<td><center>".$data1[$i+449]."</center></td>
+			<td><center>".$data1[$i+450]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==64){
+		echo"
+			<tr>
+			<td>65</td>
+			<td><a href='WebTrendLine5Ext65.php'>Co-Ext2 Heater HCU Zone 5</a></td>
+			<td><center>".$data1[$i+450]."</center></td>
+			<td><center>".$data1[$i+451]."</center></td>
+			<td><center>".$data1[$i+452]."</center></td>
+			<td><center>".$data1[$i+453]."</center></td>
+			<td><center>".$data1[$i+454]."</center></td>
+			<td><center>".$data1[$i+455]."</center></td>
+			<td><center>".$data1[$i+456]."</center></td>
+			<td><center>".$data1[$i+457]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==65){
+		echo"
+			<tr>
+			<td>66</td>
+			<td><a href='WebTrendLine5Ext66.php'>Co-Ext2 Heater HCU Zone 6</a></td>
+			<td><center>".$data1[$i+457]."</center></td>
+			<td><center>".$data1[$i+458]."</center></td>
+			<td><center>".$data1[$i+459]."</center></td>
+			<td><center>".$data1[$i+460]."</center></td>
+			<td><center>".$data1[$i+461]."</center></td>
+			<td><center>".$data1[$i+462]."</center></td>
+			<td><center>".$data1[$i+463]."</center></td>
+			<td><center>".$data1[$i+464]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==66){
+		echo"
+			<tr>
+			<td>67</td>
+			<td><a href='WebTrendLine5Ext67.php'>Co-Ext2 Heater HCU Zone 7</a></td>
+			<td><center>".$data1[$i+464]."</center></td>
+			<td><center>".$data1[$i+465]."</center></td>
+			<td><center>".$data1[$i+466]."</center></td>
+			<td><center>".$data1[$i+467]."</center></td>
+			<td><center>".$data1[$i+468]."</center></td>
+			<td><center>".$data1[$i+469]."</center></td>
+			<td><center>".$data1[$i+470]."</center></td>
+			<td><center>".$data1[$i+471]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==67){
+		echo"
+			<tr>
+			<td>68</td>
+			<td><a href='WebTrendLine5Ext68.php'>Co-Ext2 Heater HCU Zone 8</a></td>
+			<td><center>".$data1[$i+471]."</center></td>
+			<td><center>".$data1[$i+472]."</center></td>
+			<td><center>".$data1[$i+473]."</center></td>
+			<td><center>".$data1[$i+474]."</center></td>
+			<td><center>".$data1[$i+475]."</center></td>
+			<td><center>".$data1[$i+476]."</center></td>
+			<td><center>".$data1[$i+477]."</center></td>
+			<td><center>".$data1[$i+478]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==68){
+		echo"
+			<tr>
+			<td>69</td>
+			<td><a href='WebTrendLine5Ext69.php'>Co-Ext2 Heater HCU Zone 9</a></td>
+			<td><center>".$data1[$i+478]."</center></td>
+			<td><center>".$data1[$i+479]."</center></td>
+			<td><center>".$data1[$i+480]."</center></td>
+			<td><center>".$data1[$i+481]."</center></td>
+			<td><center>".$data1[$i+482]."</center></td>
+			<td><center>".$data1[$i+483]."</center></td>
+			<td><center>".$data1[$i+484]."</center></td>
+			<td><center>".$data1[$i+485]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==69){
+		echo"
+			<tr>
+			<td>70</td>
+			<td><a href='WebTrendLine5Ext70.php'>Co-Ext2 Heater HCU Zone 10</a></td>
+			<td><center>".$data1[$i+485]."</center></td>
+			<td><center>".$data1[$i+486]."</center></td>
+			<td><center>".$data1[$i+487]."</center></td>
+			<td><center>".$data1[$i+488]."</center></td>
+			<td><center>".$data1[$i+489]."</center></td>
+			<td><center>".$data1[$i+490]."</center></td>
+			<td><center>".$data1[$i+491]."</center></td>
+			<td><center>".$data1[$i+492]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==70){
+		echo"
+			<tr>
+			<td>71</td>
+			<td><a href='WebTrendLine5Ext71.php'>Co-Ext2 Heater HCU Zone 11</a></td>
+			<td><center>".$data1[$i+492]."</center></td>
+			<td><center>".$data1[$i+493]."</center></td>
+			<td><center>".$data1[$i+494]."</center></td>
+			<td><center>".$data1[$i+495]."</center></td>
+			<td><center>".$data1[$i+496]."</center></td>
+			<td><center>".$data1[$i+497]."</center></td>
+			<td><center>".$data1[$i+498]."</center></td>
+			<td><center>".$data1[$i+499]."</center></td>
+			</tr>
+			";
+		}
+		$i++;
+	}
+		
+	//
+	
+	echo'
+		<tr>
+		<th rowspan="2">No</th>
+		<th rowspan="2">Chill Roll ~ MDO</th>
+		<th colspan="3">Vibrasi Motor</th>
+		<th rowspan="2">Temperature</th>
+		<th colspan="3">Arus</th>
+		<th rowspan="2">Keterangan</th>
+			<tr>
+			<th>DE</th>
+			<th>NDE Axial</th>
+			<th>NDE Radial</th>
+			<th>R</th>
+			<th>S</th>
+			<th>T</th>
+			</tr>
+		</tr>
+	';
+
+	$i=0;
+	while($i<=22)
+	{
+		if($i==0){
+			echo"
+			<tr>
+			<td>1</td>
+			<td><a href='WebTrendLine5ChillRollMDO1.php'>DC Chill Roll</a></td>
+			<td><center>".$data2[$i+2]."</center></td>
+			<td><center>".$data2[$i+3]."</center></td>
+			<td><center>".$data2[$i+4]."</center></td>
+			<td><center>".$data2[$i+5]."</center></td>
+			<td><center>".$data2[$i+6]."</center></td>
+			<td><center>".$data2[$i+7]."</center></td>
+			<td><center>".$data2[$i+8]."</center></td>
+			<td><center>".$data2[$i+9]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==1){
+			echo"
+			<tr>
+			<td>2</td>
+			<td><a href='WebTrendLine5ChillRollMDO2.php'>Chill-Roll Fan Cooling Blower</a></td>
+			<td><center>".$data2[$i+9]."</center></td>
+			<td><center>".$data2[$i+10]."</center></td>
+			<td><center>".$data2[$i+11]."</center></td>
+			<td><center>".$data2[$i+12]."</center></td>
+			<td><center>".$data2[$i+13]."</center></td>
+			<td><center>".$data2[$i+14]."</center></td>
+			<td><center>".$data2[$i+15]."</center></td>
+			<td><center>".$data2[$i+16]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==2){
+			echo"
+			<tr>
+			<td>3</td>
+			<td><a href='WebTrendLine5ChillRollMDO3.php'>Air Knife</a></td>
+			<td><center>".$data2[$i+9]."</center></td>
+			<td><center>".$data2[$i+10]."</center></td>
+			<td><center>".$data2[$i+11]."</center></td>
+			<td><center>".$data2[$i+12]."</center></td>
+			<td><center>".$data2[$i+13]."</center></td>
+			<td><center>".$data2[$i+14]."</center></td>
+			<td><center>".$data2[$i+15]."</center></td>
+			<td><center>".$data2[$i+16]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==3){
+		echo"
+			<tr>
+			<td>4</td>
+			<td><a href='WebTrendLine5ChillRollMDO4.php'>Water Removal</a></td>
+			<td><center>".$data2[$i+16]."</center></td>
+			<td><center>".$data2[$i+17]."</center></td>
+			<td><center>".$data2[$i+18]."</center></td>
+			<td><center>".$data2[$i+19]."</center></td>
+			<td><center>".$data2[$i+20]."</center></td>
+			<td><center>".$data2[$i+21]."</center></td>
+			<td><center>".$data2[$i+22]."</center></td>
+			<td><center>".$data2[$i+23]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==4){
+		echo"
+			<tr>
+			<td>5</td>
+			<td><a href='WebTrendLine5ChillRollMDO5.php'>Chill Roll Drum Water Pump</a></td>
+			<td><center>".$data2[$i+23]."</center></td>
+			<td><center>".$data2[$i+24]."</center></td>
+			<td><center>".$data2[$i+25]."</center></td>
+			<td><center>".$data2[$i+26]."</center></td>
+			<td><center>".$data2[$i+27]."</center></td>
+			<td><center>".$data2[$i+28]."</center></td>
+			<td><center>".$data2[$i+29]."</center></td>
+			<td><center>".$data2[$i+30]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==5){
+		echo"
+			<tr>
+			<td>6</td>
+			<td><a href='WebTrendLine5ChillRollMDO6.php'>Chill Roll Water Bath Pump</a></td>
+			<td><center>".$data2[$i+30]."</center></td>
+			<td><center>".$data2[$i+31]."</center></td>
+			<td><center>".$data2[$i+32]."</center></td>
+			<td><center>".$data2[$i+33]."</center></td>
+			<td><center>".$data2[$i+34]."</center></td>
+			<td><center>".$data2[$i+35]."</center></td>
+			<td><center>".$data2[$i+36]."</center></td>
+			<td><center>".$data2[$i+37]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==6){
+		echo"
+			<tr>
+			<td>7</td>
+			<td><a href='WebTrendLine5ChillRollMDO7.php'>DC MDO-A</a></td>
+			<td><center>".$data2[$i+37]."</center></td>
+			<td><center>".$data2[$i+38]."</center></td>
+			<td><center>".$data2[$i+39]."</center></td>
+			<td><center>".$data2[$i+40]."</center></td>
+			<td><center>".$data2[$i+41]."</center></td>
+			<td><center>".$data2[$i+42]."</center></td>
+			<td><center>".$data2[$i+43]."</center></td>
+			<td><center>".$data2[$i+44]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==7){
+		echo"
+			<tr>
+			<td>8</td>
+			<td><a href='WebTrendLine5ChillRollMDO8.php'>MDO-A Fan Cooling Blower</a></td>
+			<td><center>".$data2[$i+44]."</center></td>
+			<td><center>".$data2[$i+45]."</center></td>
+			<td><center>".$data2[$i+46]."</center></td>
+			<td><center>".$data2[$i+47]."</center></td>
+			<td><center>".$data2[$i+48]."</center></td>
+			<td><center>".$data2[$i+49]."</center></td>
+			<td><center>".$data2[$i+50]."</center></td>
+			<td><center>".$data2[$i+51]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==8){
+		echo"
+			<tr>
+			<td>9</td>
+			<td><a href='WebTrendLine5ChillRollMDO9.php'>DC MDO-B</a></td>
+			<td><center>".$data2[$i+51]."</center></td>
+			<td><center>".$data2[$i+52]."</center></td>
+			<td><center>".$data2[$i+53]."</center></td>
+			<td><center>".$data2[$i+54]."</center></td>
+			<td><center>".$data2[$i+55]."</center></td>
+			<td><center>".$data2[$i+56]."</center></td>
+			<td><center>".$data2[$i+57]."</center></td>
+			<td><center>".$data2[$i+58]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==9){
+		echo"
+			<tr>
+			<td>10</td>
+			<td><a href='WebTrendLine5ChillRollMDO10.php'>MDO-B Fan Cooling Blower</a></td>
+			<td><center>".$data2[$i+58]."</center></td>
+			<td><center>".$data2[$i+59]."</center></td>
+			<td><center>".$data2[$i+60]."</center></td>
+			<td><center>".$data2[$i+61]."</center></td>
+			<td><center>".$data2[$i+62]."</center></td>
+			<td><center>".$data2[$i+63]."</center></td>
+			<td><center>".$data2[$i+64]."</center></td>
+			<td><center>".$data2[$i+65]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==10){
+		echo"
+			<tr>
+			<td>11</td>
+			<td><a href='WebTrendLine5ChillRollMDO11.php'>DC MDO-C</a></td>
+			<td><center>".$data2[$i+65]."</center></td>
+			<td><center>".$data2[$i+66]."</center></td>
+			<td><center>".$data2[$i+67]."</center></td>
+			<td><center>".$data2[$i+68]."</center></td>
+			<td><center>".$data2[$i+69]."</center></td>
+			<td><center>".$data2[$i+70]."</center></td>
+			<td><center>".$data2[$i+71]."</center></td>
+			<td><center>".$data2[$i+72]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==11){
+		echo"
+			<tr>
+			<td>12</td>
+			<td><a href='WebTrendLine5ChillRollMDO12.php'>MDO-C Fan Cooling Blower</a></td>
+			<td><center>".$data2[$i+72]."</center></td>
+			<td><center>".$data2[$i+73]."</center></td>
+			<td><center>".$data2[$i+74]."</center></td>
+			<td><center>".$data2[$i+75]."</center></td>
+			<td><center>".$data2[$i+76]."</center></td>
+			<td><center>".$data2[$i+77]."</center></td>
+			<td><center>".$data2[$i+78]."</center></td>
+			<td><center>".$data2[$i+79]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==12){
+		echo"
+			<tr>
+			<td>13</td>
+			<td><a href='WebTrendLine5ChillRollMDO13.php'>MDO Pump Preheating 1</a></td>
+			<td><center>".$data2[$i+79]."</center></td>
+			<td><center>".$data2[$i+80]."</center></td>
+			<td><center>".$data2[$i+81]."</center></td>
+			<td><center>".$data2[$i+82]."</center></td>
+			<td><center>".$data2[$i+83]."</center></td>
+			<td><center>".$data2[$i+84]."</center></td>
+			<td><center>".$data2[$i+85]."</center></td>
+			<td><center>".$data2[$i+86]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==13){
+		echo"
+			<tr>
+			<td>14</td>
+			<td><a href='WebTrendLine5ChillRollMDO14.php'>MDO Pump Preheating 2</a></td>
+			<td><center>".$data2[$i+86]."</center></td>
+			<td><center>".$data2[$i+87]."</center></td>
+			<td><center>".$data2[$i+88]."</center></td>
+			<td><center>".$data2[$i+89]."</center></td>
+			<td><center>".$data2[$i+90]."</center></td>
+			<td><center>".$data2[$i+91]."</center></td>
+			<td><center>".$data2[$i+92]."</center></td>
+			<td><center>".$data2[$i+93]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==14){
+		echo"
+			<tr>
+			<td>15</td>
+			<td><a href='WebTrendLine5ChillRollMDO15.php'>MDO Pump Preheating 3</a></td>
+			<td><center>".$data2[$i+93]."</center></td>
+			<td><center>".$data2[$i+94]."</center></td>
+			<td><center>".$data2[$i+95]."</center></td>
+			<td><center>".$data2[$i+96]."</center></td>
+			<td><center>".$data2[$i+97]."</center></td>
+			<td><center>".$data2[$i+98]."</center></td>
+			<td><center>".$data2[$i+99]."</center></td>
+			<td><center>".$data2[$i+100]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==15){
+		echo"
+			<tr>
+			<td>16</td>
+			<td><a href='WebTrendLine5ChillRollMDO16.php'>MDO Pump Preheating 4</a></td>
+			<td><center>".$data2[$i+100]."</center></td>
+			<td><center>".$data2[$i+101]."</center></td>
+			<td><center>".$data2[$i+102]."</center></td>
+			<td><center>".$data2[$i+103]."</center></td>
+			<td><center>".$data2[$i+104]."</center></td>
+			<td><center>".$data2[$i+105]."</center></td>
+			<td><center>".$data2[$i+106]."</center></td>
+			<td><center>".$data2[$i+107]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==16){
+		echo"
+			<tr>
+			<td>17</td>
+			<td><a href='WebTrendLine5ChillRollMDO17.php'>MDO Pump Preheating 5</a></td>
+			<td><center>".$data2[$i+107]."</center></td>
+			<td><center>".$data2[$i+108]."</center></td>
+			<td><center>".$data2[$i+109]."</center></td>
+			<td><center>".$data2[$i+110]."</center></td>
+			<td><center>".$data2[$i+111]."</center></td>
+			<td><center>".$data2[$i+112]."</center></td>
+			<td><center>".$data2[$i+113]."</center></td>
+			<td><center>".$data2[$i+114]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==17){
+		echo"
+			<tr>
+			<td>18</td>
+			<td><a href='WebTrendLine5ChillRollMDO18.php'>MDO Pump Drawing 1</a></td>
+			<td><center>".$data2[$i+114]."</center></td>
+			<td><center>".$data2[$i+115]."</center></td>
+			<td><center>".$data2[$i+116]."</center></td>
+			<td><center>".$data2[$i+117]."</center></td>
+			<td><center>".$data2[$i+118]."</center></td>
+			<td><center>".$data2[$i+119]."</center></td>
+			<td><center>".$data2[$i+120]."</center></td>
+			<td><center>".$data2[$i+121]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==18){
+		echo"
+			<tr>
+			<td>19</td>
+			<td><a href='WebTrendLine5ChillRollMDO19.php'>MDO Pump Drawing 2</a></td>
+			<td><center>".$data2[$i+121]."</center></td>
+			<td><center>".$data2[$i+122]."</center></td>
+			<td><center>".$data2[$i+123]."</center></td>
+			<td><center>".$data2[$i+124]."</center></td>
+			<td><center>".$data2[$i+125]."</center></td>
+			<td><center>".$data2[$i+126]."</center></td>
+			<td><center>".$data2[$i+127]."</center></td>
+			<td><center>".$data2[$i+128]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==19){
+		echo"
+			<tr>
+			<td>20</td>
+			<td><a href='WebTrendLine5ChillRollMDO20.php'>MDO Pump Drawing 3</a></td>
+			<td><center>".$data2[$i+128]."</center></td>
+			<td><center>".$data2[$i+129]."</center></td>
+			<td><center>".$data2[$i+130]."</center></td>
+			<td><center>".$data2[$i+131]."</center></td>
+			<td><center>".$data2[$i+132]."</center></td>
+			<td><center>".$data2[$i+133]."</center></td>
+			<td><center>".$data2[$i+134]."</center></td>
+			<td><center>".$data2[$i+135]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==20){
+		echo"
+			<tr>
+			<td>21</td>
+			<td><a href='WebTrendLine5ChillRollMDO21.php'>MDO Pump Annealing 1</a></td>
+			<td><center>".$data2[$i+135]."</center></td>
+			<td><center>".$data2[$i+136]."</center></td>
+			<td><center>".$data2[$i+137]."</center></td>
+			<td><center>".$data2[$i+138]."</center></td>
+			<td><center>".$data2[$i+139]."</center></td>
+			<td><center>".$data2[$i+140]."</center></td>
+			<td><center>".$data2[$i+141]."</center></td>
+			<td><center>".$data2[$i+142]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==21){
+		echo"
+			<tr>
+			<td>22</td>
+			<td><a href='WebTrendLine5ChillRollMDO22.php'>MDO Pump Annealing 2</a></td>
+			<td><center>".$data2[$i+142]."</center></td>
+			<td><center>".$data2[$i+143]."</center></td>
+			<td><center>".$data2[$i+144]."</center></td>
+			<td><center>".$data2[$i+145]."</center></td>
+			<td><center>".$data2[$i+146]."</center></td>
+			<td><center>".$data2[$i+147]."</center></td>
+			<td><center>".$data2[$i+148]."</center></td>
+			<td><center>".$data2[$i+149]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==22){
+		echo"
+			<tr>
+			<td>23</td>
+			<td><a href='WebTrendLine5ChillRollMDO23.php'>DC Auxiliary Winder</a></td>
+			<td><center>".$data2[$i+149]."</center></td>
+			<td><center>".$data2[$i+150]."</center></td>
+			<td><center>".$data2[$i+151]."</center></td>
+			<td><center>".$data2[$i+152]."</center></td>
+			<td><center>".$data2[$i+153]."</center></td>
+			<td><center>".$data2[$i+154]."</center></td>
+			<td><center>".$data2[$i+155]."</center></td>
+			<td><center>".$data2[$i+156]."</center></td>
+			</tr>
+			";
+		}
+		$i++;
+	}
+	
+	//
+	
+	echo'
+		<tr>
+		<th rowspan="2">No</th>
+		<th rowspan="2">TDO</th>
+		<th colspan="3">Vibrasi Motor</th>
+		<th rowspan="2">Temperature</th>
+		<th colspan="3">Arus</th>
+		<th rowspan="2">Keterangan</th>
+			<tr>
+			<th>DE</th>
+			<th>NDE Axial</th>
+			<th>NDE Radial</th>
+			<th>R</th>
+			<th>S</th>
+			<th>T</th>
+			</tr>
+		</tr>
+	';
+
+	$i=0;
+	while($i<=29)
+	{
+		if($i==0){
+			echo"
+			<tr>
+			<td>1</td>
+			<td><a href='WebTrendLine5TDO1.php'>TDO Fan PH1-1 DS</a></td>
+			<td><center>".$data3[$i+2]."</center></td>
+			<td><center>".$data3[$i+3]."</center></td>
+			<td><center>".$data3[$i+4]."</center></td>
+			<td><center>".$data3[$i+5]."</center></td>
+			<td><center>".$data3[$i+6]."</center></td>
+			<td><center>".$data3[$i+7]."</center></td>
+			<td><center>".$data3[$i+8]."</center></td>
+			<td><center>".$data3[$i+9]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==1){
+			echo"
+			<tr>
+			<td>2</td>
+			<td><a href='WebTrendLine5TDO2.php'>TDO Fan PH1-2 OS</a></td>
+			<td><center>".$data3[$i+9]."</center></td>
+			<td><center>".$data3[$i+10]."</center></td>
+			<td><center>".$data3[$i+11]."</center></td>
+			<td><center>".$data3[$i+12]."</center></td>
+			<td><center>".$data3[$i+13]."</center></td>
+			<td><center>".$data3[$i+14]."</center></td>
+			<td><center>".$data3[$i+15]."</center></td>
+			<td><center>".$data3[$i+16]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==2){
+		echo"
+			<tr>
+			<td>3</td>
+			<td><a href='WebTrendLine5TDO3.php'>TDO Fan PH2-1 DS</a></td>
+			<td><center>".$data3[$i+16]."</center></td>
+			<td><center>".$data3[$i+17]."</center></td>
+			<td><center>".$data3[$i+18]."</center></td>
+			<td><center>".$data3[$i+19]."</center></td>
+			<td><center>".$data3[$i+20]."</center></td>
+			<td><center>".$data3[$i+21]."</center></td>
+			<td><center>".$data3[$i+22]."</center></td>
+			<td><center>".$data3[$i+23]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==3){
+		echo"
+			<tr>
+			<td>4</td>
+			<td><a href='WebTrendLine5TDO4.php'>TDO Fan PH2-2 OS</a></td>
+			<td><center>".$data3[$i+23]."</center></td>
+			<td><center>".$data3[$i+24]."</center></td>
+			<td><center>".$data3[$i+25]."</center></td>
+			<td><center>".$data3[$i+26]."</center></td>
+			<td><center>".$data3[$i+27]."</center></td>
+			<td><center>".$data3[$i+28]."</center></td>
+			<td><center>".$data3[$i+29]."</center></td>
+			<td><center>".$data3[$i+30]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==4){
+		echo"
+			<tr>
+			<td>5</td>
+			<td><a href='WebTrendLine5TDO5.php'>TDO Fan PH2-3 OS</a></td>
+			<td><center>".$data3[$i+30]."</center></td>
+			<td><center>".$data3[$i+31]."</center></td>
+			<td><center>".$data3[$i+32]."</center></td>
+			<td><center>".$data3[$i+33]."</center></td>
+			<td><center>".$data3[$i+34]."</center></td>
+			<td><center>".$data3[$i+35]."</center></td>
+			<td><center>".$data3[$i+36]."</center></td>
+			<td><center>".$data3[$i+37]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==5){
+		echo"
+			<tr>
+			<td>6</td>
+			<td><a href='WebTrendLine5TDO6.php'>TDO Fan PH3-1 DS</a></td>
+			<td><center>".$data3[$i+37]."</center></td>
+			<td><center>".$data3[$i+38]."</center></td>
+			<td><center>".$data3[$i+39]."</center></td>
+			<td><center>".$data3[$i+40]."</center></td>
+			<td><center>".$data3[$i+41]."</center></td>
+			<td><center>".$data3[$i+42]."</center></td>
+			<td><center>".$data3[$i+43]."</center></td>
+			<td><center>".$data3[$i+44]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==6){
+		echo"
+			<tr>
+			<td>7</td>
+			<td><a href='WebTrendLine5TDO7.php'>TDO Fan PH3-2 OS</a></td>
+			<td><center>".$data3[$i+44]."</center></td>
+			<td><center>".$data3[$i+45]."</center></td>
+			<td><center>".$data3[$i+46]."</center></td>
+			<td><center>".$data3[$i+47]."</center></td>
+			<td><center>".$data3[$i+48]."</center></td>
+			<td><center>".$data3[$i+49]."</center></td>
+			<td><center>".$data3[$i+50]."</center></td>
+			<td><center>".$data3[$i+51]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==7){
+		echo"
+			<tr>
+			<td>8</td>
+			<td><a href='WebTrendLine5TDO8.php'>TDO Fan PH3-3 DS</a></td>
+			<td><center>".$data3[$i+51]."</center></td>
+			<td><center>".$data3[$i+52]."</center></td>
+			<td><center>".$data3[$i+53]."</center></td>
+			<td><center>".$data3[$i+54]."</center></td>
+			<td><center>".$data3[$i+55]."</center></td>
+			<td><center>".$data3[$i+56]."</center></td>
+			<td><center>".$data3[$i+57]."</center></td>
+			<td><center>".$data3[$i+58]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==8){
+		echo"
+			<tr>
+			<td>9</td>
+			<td><a href='WebTrendLine5TDO9.php'>TDO Fan Drawing1-1 DS</a></td>
+			<td><center>".$data3[$i+58]."</center></td>
+			<td><center>".$data3[$i+59]."</center></td>
+			<td><center>".$data3[$i+60]."</center></td>
+			<td><center>".$data3[$i+61]."</center></td>
+			<td><center>".$data3[$i+62]."</center></td>
+			<td><center>".$data3[$i+63]."</center></td>
+			<td><center>".$data3[$i+64]."</center></td>
+			<td><center>".$data3[$i+65]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==9){
+		echo"
+			<tr>
+			<td>10</td>
+			<td><a href='WebTrendLine5TDO10.php'>TDO Fan Drawing1-2 OS</a></td>
+			<td><center>".$data3[$i+65]."</center></td>
+			<td><center>".$data3[$i+66]."</center></td>
+			<td><center>".$data3[$i+67]."</center></td>
+			<td><center>".$data3[$i+68]."</center></td>
+			<td><center>".$data3[$i+69]."</center></td>
+			<td><center>".$data3[$i+70]."</center></td>
+			<td><center>".$data3[$i+71]."</center></td>
+			<td><center>".$data3[$i+72]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==10){
+		echo"
+			<tr>
+			<td>11</td>
+			<td><a href='WebTrendLine5TDO11.php'>TDO Fan Drawing2-1 DS</a></td>
+			<td><center>".$data3[$i+72]."</center></td>
+			<td><center>".$data3[$i+73]."</center></td>
+			<td><center>".$data3[$i+74]."</center></td>
+			<td><center>".$data3[$i+75]."</center></td>
+			<td><center>".$data3[$i+76]."</center></td>
+			<td><center>".$data3[$i+77]."</center></td>
+			<td><center>".$data3[$i+78]."</center></td>
+			<td><center>".$data3[$i+79]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==11){
+		echo"
+			<tr>
+			<td>12</td>
+			<td><a href='WebTrendLine5TDO12.php'>TDO Fan Drawing2-2 OS</a></td>
+			<td><center>".$data3[$i+79]."</center></td>
+			<td><center>".$data3[$i+80]."</center></td>
+			<td><center>".$data3[$i+81]."</center></td>
+			<td><center>".$data3[$i+82]."</center></td>
+			<td><center>".$data3[$i+83]."</center></td>
+			<td><center>".$data3[$i+84]."</center></td>
+			<td><center>".$data3[$i+85]."</center></td>
+			<td><center>".$data3[$i+86]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==12){
+		echo"
+			<tr>
+			<td>13</td>
+			<td><a href='WebTrendLine5TDO13.php'>TDO Fan Drawing3-1 DS</a></td>
+			<td><center>".$data3[$i+86]."</center></td>
+			<td><center>".$data3[$i+87]."</center></td>
+			<td><center>".$data3[$i+88]."</center></td>
+			<td><center>".$data3[$i+89]."</center></td>
+			<td><center>".$data3[$i+90]."</center></td>
+			<td><center>".$data3[$i+91]."</center></td>
+			<td><center>".$data3[$i+92]."</center></td>
+			<td><center>".$data3[$i+93]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==13){
+		echo"
+			<tr>
+			<td>14</td>
+			<td><a href='WebTrendLine5TDO14.php'>TDO Fan Drawing3-2 DS</a></td>
+			<td><center>".$data3[$i+93]."</center></td>
+			<td><center>".$data3[$i+94]."</center></td>
+			<td><center>".$data3[$i+95]."</center></td>
+			<td><center>".$data3[$i+96]."</center></td>
+			<td><center>".$data3[$i+97]."</center></td>
+			<td><center>".$data3[$i+98]."</center></td>
+			<td><center>".$data3[$i+99]."</center></td>
+			<td><center>".$data3[$i+100]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==14){
+		echo"
+			<tr>
+			<td>15</td>
+			<td><a href='WebTrendLine5TDO15.php'>TDO Fan Drawing4-1 DS</a></td>
+			<td><center>".$data3[$i+100]."</center></td>
+			<td><center>".$data3[$i+101]."</center></td>
+			<td><center>".$data3[$i+102]."</center></td>
+			<td><center>".$data3[$i+103]."</center></td>
+			<td><center>".$data3[$i+104]."</center></td>
+			<td><center>".$data3[$i+105]."</center></td>
+			<td><center>".$data3[$i+106]."</center></td>
+			<td><center>".$data3[$i+107]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==15){
+		echo"
+			<tr>
+			<td>16</td>
+			<td><a href='WebTrendLine5TDO16.php'>TDO Fan Drawing4-2 OS</a></td>
+			<td><center>".$data3[$i+107]."</center></td>
+			<td><center>".$data3[$i+108]."</center></td>
+			<td><center>".$data3[$i+109]."</center></td>
+			<td><center>".$data3[$i+110]."</center></td>
+			<td><center>".$data3[$i+111]."</center></td>
+			<td><center>".$data3[$i+112]."</center></td>
+			<td><center>".$data3[$i+113]."</center></td>
+			<td><center>".$data3[$i+114]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==16){
+		echo"
+			<tr>
+			<td>17</td>
+			<td><a href='WebTrendLine5TDO17.php'>TDO Fan Annealing1-1 DS</a></td>
+			<td><center>".$data3[$i+114]."</center></td>
+			<td><center>".$data3[$i+115]."</center></td>
+			<td><center>".$data3[$i+116]."</center></td>
+			<td><center>".$data3[$i+117]."</center></td>
+			<td><center>".$data3[$i+118]."</center></td>
+			<td><center>".$data3[$i+119]."</center></td>
+			<td><center>".$data3[$i+120]."</center></td>
+			<td><center>".$data3[$i+121]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==17){
+		echo"
+			<tr>
+			<td>18</td>
+			<td><a href='WebTrendLine5TDO18.php'>TDO Fan Annealing1-2 OS</a></td>
+			<td><center>".$data3[$i+121]."</center></td>
+			<td><center>".$data3[$i+122]."</center></td>
+			<td><center>".$data3[$i+123]."</center></td>
+			<td><center>".$data3[$i+124]."</center></td>
+			<td><center>".$data3[$i+125]."</center></td>
+			<td><center>".$data3[$i+126]."</center></td>
+			<td><center>".$data3[$i+127]."</center></td>
+			<td><center>".$data3[$i+128]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==18){
+		echo"
+			<tr>
+			<td>19</td>
+			<td><a href='WebTrendLine5TDO19.php'>TDO Fan Annealing2-1 DS</a></td>
+			<td><center>".$data3[$i+128]."</center></td>
+			<td><center>".$data3[$i+129]."</center></td>
+			<td><center>".$data3[$i+130]."</center></td>
+			<td><center>".$data3[$i+131]."</center></td>
+			<td><center>".$data3[$i+132]."</center></td>
+			<td><center>".$data3[$i+133]."</center></td>
+			<td><center>".$data3[$i+134]."</center></td>
+			<td><center>".$data3[$i+135]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==19){
+		echo"
+			<tr>
+			<td>20</td>
+			<td><a href='WebTrendLine5TDO20.php'>TDO Fan Annealing2-2 OS</a></td>
+			<td><center>".$data3[$i+135]."</center></td>
+			<td><center>".$data3[$i+136]."</center></td>
+			<td><center>".$data3[$i+137]."</center></td>
+			<td><center>".$data3[$i+138]."</center></td>
+			<td><center>".$data3[$i+139]."</center></td>
+			<td><center>".$data3[$i+140]."</center></td>
+			<td><center>".$data3[$i+141]."</center></td>
+			<td><center>".$data3[$i+142]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==20){
+		echo"
+			<tr>
+			<td>21</td>
+			<td><a href='WebTrendLine5TDO21.php'>TDO Fan Annealing3-1 DS</a></td>
+			<td><center>".$data3[$i+142]."</center></td>
+			<td><center>".$data3[$i+143]."</center></td>
+			<td><center>".$data3[$i+144]."</center></td>
+			<td><center>".$data3[$i+145]."</center></td>
+			<td><center>".$data3[$i+146]."</center></td>
+			<td><center>".$data3[$i+147]."</center></td>
+			<td><center>".$data3[$i+148]."</center></td>
+			<td><center>".$data3[$i+149]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==21){
+		echo"
+			<tr>
+			<td>22</td>
+			<td><a href='WebTrendLine5TDO22.php'>TDO Fan Annealing3-2 OS</a></td>
+			<td><center>".$data3[$i+149]."</center></td>
+			<td><center>".$data3[$i+150]."</center></td>
+			<td><center>".$data3[$i+151]."</center></td>
+			<td><center>".$data3[$i+152]."</center></td>
+			<td><center>".$data3[$i+153]."</center></td>
+			<td><center>".$data3[$i+154]."</center></td>
+			<td><center>".$data3[$i+155]."</center></td>
+			<td><center>".$data3[$i+156]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==22){
+		echo"
+			<tr>
+			<td>23</td>
+			<td><a href='WebTrendLine5TDO23.php'>TDO Air Shower 1 DS</a></td>
+			<td><center>".$data3[$i+156]."</center></td>
+			<td><center>".$data3[$i+157]."</center></td>
+			<td><center>".$data3[$i+158]."</center></td>
+			<td><center>".$data3[$i+159]."</center></td>
+			<td><center>".$data3[$i+160]."</center></td>
+			<td><center>".$data3[$i+161]."</center></td>
+			<td><center>".$data3[$i+162]."</center></td>
+			<td><center>".$data3[$i+163]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==23){
+		echo"
+			<tr>
+			<td>24</td>
+			<td><a href='WebTrendLine5TDO24.php'>TDO Air Shower 2 OS</a></td>
+			<td><center>".$data3[$i+163]."</center></td>
+			<td><center>".$data3[$i+164]."</center></td>
+			<td><center>".$data3[$i+165]."</center></td>
+			<td><center>".$data3[$i+166]."</center></td>
+			<td><center>".$data3[$i+167]."</center></td>
+			<td><center>".$data3[$i+168]."</center></td>
+			<td><center>".$data3[$i+169]."</center></td>
+			<td><center>".$data3[$i+170]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==24){
+		echo"
+			<tr>
+			<td>25</td>
+			<td><a href='WebTrendLine5TDO25.php'>DC Motor TDO-Drive</a></td>
+			<td><center>".$data3[$i+170]."</center></td>
+			<td><center>".$data3[$i+171]."</center></td>
+			<td><center>".$data3[$i+172]."</center></td>
+			<td><center>".$data3[$i+173]."</center></td>
+			<td><center>".$data3[$i+174]."</center></td>
+			<td><center>".$data3[$i+175]."</center></td>
+			<td><center>".$data3[$i+176]."</center></td>
+			<td><center>".$data3[$i+177]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==25){
+		echo"
+			<tr>
+			<td>26</td>
+			<td><a href='WebTrendLine5TDO26.php'>AC Motor Cooling TDO-Drive</a></td>
+			<td><center>".$data3[$i+177]."</center></td>
+			<td><center>".$data3[$i+178]."</center></td>
+			<td><center>".$data3[$i+179]."</center></td>
+			<td><center>".$data3[$i+180]."</center></td>
+			<td><center>".$data3[$i+181]."</center></td>
+			<td><center>".$data3[$i+182]."</center></td>
+			<td><center>".$data3[$i+183]."</center></td>
+			<td><center>".$data3[$i+184]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==26){
+		echo"
+			<tr>
+			<td>27</td>
+			<td><a href='WebTrendLine5TDO27.php'>Edge Guide DS</a></td>
+			<td><center>".$data3[$i+184]."</center></td>
+			<td><center>".$data3[$i+185]."</center></td>
+			<td><center>".$data3[$i+186]."</center></td>
+			<td><center>".$data3[$i+187]."</center></td>
+			<td><center>".$data3[$i+188]."</center></td>
+			<td><center>".$data3[$i+189]."</center></td>
+			<td><center>".$data3[$i+190]."</center></td>
+			<td><center>".$data3[$i+191]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==27){
+		echo"
+			<tr>
+			<td>28</td>
+			<td><a href='WebTrendLine5TDO28.php'>Edge Guide OS</a></td>
+			<td><center>".$data3[$i+191]."</center></td>
+			<td><center>".$data3[$i+192]."</center></td>
+			<td><center>".$data3[$i+193]."</center></td>
+			<td><center>".$data3[$i+194]."</center></td>
+			<td><center>".$data3[$i+195]."</center></td>
+			<td><center>".$data3[$i+196]."</center></td>
+			<td><center>".$data3[$i+197]."</center></td>
+			<td><center>".$data3[$i+198]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==28){
+		echo"
+			<tr>
+			<td>29</td>
+			<td><a href='WebTrendLine5TDO29.php'>TDO Bolt Lubrication Pump</a></td>
+			<td><center>".$data3[$i+198]."</center></td>
+			<td><center>".$data3[$i+199]."</center></td>
+			<td><center>".$data3[$i+200]."</center></td>
+			<td><center>".$data3[$i+201]."</center></td>
+			<td><center>".$data3[$i+202]."</center></td>
+			<td><center>".$data3[$i+203]."</center></td>
+			<td><center>".$data3[$i+204]."</center></td>
+			<td><center>".$data3[$i+205]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==29){
+		echo"
+			<tr>
+			<td>30</td>
+			<td><a href='WebTrendLine5TDO30.php'>TDO Chain Lubrication Pump</a></td>
+			<td><center>".$data3[$i+205]."</center></td>
+			<td><center>".$data3[$i+206]."</center></td>
+			<td><center>".$data3[$i+207]."</center></td>
+			<td><center>".$data3[$i+208]."</center></td>
+			<td><center>".$data3[$i+209]."</center></td>
+			<td><center>".$data3[$i+210]."</center></td>
+			<td><center>".$data3[$i+211]."</center></td>
+			<td><center>".$data3[$i+212]."</center></td>
+			</tr>
+			";
+		}
+		$i++;
+	}
+	
+	//
+	
+	echo'
+		<tr>
+		<th rowspan="2">No</th>
+		<th rowspan="2">Pull Roll</th>
+		<th colspan="3">Vibrasi Motor</th>
+		<th rowspan="2">Temperature</th>
+		<th colspan="3">Arus</th>
+		<th rowspan="2">Keterangan</th>
+			<tr>
+			<th>DE</th>
+			<th>NDE Axial</th>
+			<th>NDE Radial</th>
+			<th>R</th>
+			<th>S</th>
+			<th>T</th>
+			</tr>
+		</tr>
+	';
+
+	$i=0;
+	while($i<=27)
+	{
+		if($i==0){
+			echo"
+			<tr>
+			<td>1</td>
+			<td><a href='WebTrendLine5PullRoll1.php'>DC Pull Roll 1</a></td>
+			<td><center>".$data4[$i+2]."</center></td>
+			<td><center>".$data4[$i+3]."</center></td>
+			<td><center>".$data4[$i+4]."</center></td>
+			<td><center>".$data4[$i+5]."</center></td>
+			<td><center>".$data4[$i+6]."</center></td>
+			<td><center>".$data4[$i+7]."</center></td>
+			<td><center>".$data4[$i+8]."</center></td>
+			<td><center>".$data4[$i+9]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==1){
+			echo"
+			<tr>
+			<td>2</td>
+			<td><a href='WebTrendLine5PullRoll2.php'>Pull-Roll1 Fan Cooling Blower</a></td>
+			<td><center>".$data4[$i+9]."</center></td>
+			<td><center>".$data4[$i+10]."</center></td>
+			<td><center>".$data4[$i+11]."</center></td>
+			<td><center>".$data4[$i+12]."</center></td>
+			<td><center>".$data4[$i+13]."</center></td>
+			<td><center>".$data4[$i+14]."</center></td>
+			<td><center>".$data4[$i+15]."</center></td>
+			<td><center>".$data4[$i+16]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==2){
+		echo"
+			<tr>
+			<td>3</td>
+			<td><a href='WebTrendLine5PullRoll3.php'>DC Pull Roll 2</a></td>
+			<td><center>".$data4[$i+16]."</center></td>
+			<td><center>".$data4[$i+17]."</center></td>
+			<td><center>".$data4[$i+18]."</center></td>
+			<td><center>".$data4[$i+19]."</center></td>
+			<td><center>".$data4[$i+20]."</center></td>
+			<td><center>".$data4[$i+21]."</center></td>
+			<td><center>".$data4[$i+22]."</center></td>
+			<td><center>".$data4[$i+23]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==3){
+		echo"
+			<tr>
+			<td>4</td>
+			<td><a href='WebTrendLine5PullRoll4.php'>Pull-Roll2 Fan Cooling Blower </a></td>
+			<td><center>".$data4[$i+23]."</center></td>
+			<td><center>".$data4[$i+24]."</center></td>
+			<td><center>".$data4[$i+25]."</center></td>
+			<td><center>".$data4[$i+26]."</center></td>
+			<td><center>".$data4[$i+27]."</center></td>
+			<td><center>".$data4[$i+28]."</center></td>
+			<td><center>".$data4[$i+29]."</center></td>
+			<td><center>".$data4[$i+30]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==4){
+		echo"
+			<tr>
+			<td>5</td>
+			<td><a href='WebTrendLine5PullRoll5.php'>DC Pull Roll 3</a></td>
+			<td><center>".$data4[$i+30]."</center></td>
+			<td><center>".$data4[$i+31]."</center></td>
+			<td><center>".$data4[$i+32]."</center></td>
+			<td><center>".$data4[$i+33]."</center></td>
+			<td><center>".$data4[$i+34]."</center></td>
+			<td><center>".$data4[$i+35]."</center></td>
+			<td><center>".$data4[$i+36]."</center></td>
+			<td><center>".$data4[$i+37]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==5){
+		echo"
+			<tr>
+			<td>6</td>
+			<td><a href='WebTrendLine5PullRoll6.php'>Pull-Roll 3 Fan Cooling Blower</a></td>
+			<td><center>".$data4[$i+37]."</center></td>
+			<td><center>".$data4[$i+38]."</center></td>
+			<td><center>".$data4[$i+39]."</center></td>
+			<td><center>".$data4[$i+40]."</center></td>
+			<td><center>".$data4[$i+41]."</center></td>
+			<td><center>".$data4[$i+42]."</center></td>
+			<td><center>".$data4[$i+43]."</center></td>
+			<td><center>".$data4[$i+44]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==6){
+		echo"
+			<tr>
+			<td>7</td>
+			<td><a href='WebTrendLine5PullRoll7.php'>DC Pull Roll 4</a></td>
+			<td><center>".$data4[$i+44]."</center></td>
+			<td><center>".$data4[$i+45]."</center></td>
+			<td><center>".$data4[$i+46]."</center></td>
+			<td><center>".$data4[$i+47]."</center></td>
+			<td><center>".$data4[$i+48]."</center></td>
+			<td><center>".$data4[$i+49]."</center></td>
+			<td><center>".$data4[$i+50]."</center></td>
+			<td><center>".$data4[$i+51]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==7){
+		echo"
+			<tr>
+			<td>8</td>
+			<td><a href='WebTrendLine5PullRoll8.php'>Pull-Roll4 Fan Cooling Blower</a></td>
+			<td><center>".$data4[$i+51]."</center></td>
+			<td><center>".$data4[$i+52]."</center></td>
+			<td><center>".$data4[$i+53]."</center></td>
+			<td><center>".$data4[$i+54]."</center></td>
+			<td><center>".$data4[$i+55]."</center></td>
+			<td><center>".$data4[$i+56]."</center></td>
+			<td><center>".$data4[$i+57]."</center></td>
+			<td><center>".$data4[$i+58]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==8){
+		echo"
+			<tr>
+			<td>9</td>
+			<td><a href='WebTrendLine5PullRoll9.php'>DC Pull Roll 5</a></td>
+			<td><center>".$data4[$i+58]."</center></td>
+			<td><center>".$data4[$i+59]."</center></td>
+			<td><center>".$data4[$i+60]."</center></td>
+			<td><center>".$data4[$i+61]."</center></td>
+			<td><center>".$data4[$i+62]."</center></td>
+			<td><center>".$data4[$i+63]."</center></td>
+			<td><center>".$data4[$i+64]."</center></td>
+			<td><center>".$data4[$i+65]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==9){
+		echo"
+			<tr>
+			<td>10</td>
+			<td><a href='WebTrendLine5PullRoll10.php'>Pull-Roll5 Fan Cooling Blower</a></td>
+			<td><center>".$data4[$i+65]."</center></td>
+			<td><center>".$data4[$i+66]."</center></td>
+			<td><center>".$data4[$i+67]."</center></td>
+			<td><center>".$data4[$i+68]."</center></td>
+			<td><center>".$data4[$i+69]."</center></td>
+			<td><center>".$data4[$i+70]."</center></td>
+			<td><center>".$data4[$i+71]."</center></td>
+			<td><center>".$data4[$i+72]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==10){
+		echo"
+			<tr>
+			<td>11</td>
+			<td><a href='WebTrendLine5PullRoll11.php'>Cooling Pump HCU 1</a></td>
+			<td><center>".$data4[$i+72]."</center></td>
+			<td><center>".$data4[$i+73]."</center></td>
+			<td><center>".$data4[$i+74]."</center></td>
+			<td><center>".$data4[$i+75]."</center></td>
+			<td><center>".$data4[$i+76]."</center></td>
+			<td><center>".$data4[$i+77]."</center></td>
+			<td><center>".$data4[$i+78]."</center></td>
+			<td><center>".$data4[$i+79]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==11){
+		echo"
+			<tr>
+			<td>12</td>
+			<td><a href='WebTrendLine5PullRoll12.php'>Cooling Pump HCU 2</a></td>
+			<td><center>".$data4[$i+79]."</center></td>
+			<td><center>".$data4[$i+80]."</center></td>
+			<td><center>".$data4[$i+81]."</center></td>
+			<td><center>".$data4[$i+82]."</center></td>
+			<td><center>".$data4[$i+83]."</center></td>
+			<td><center>".$data4[$i+84]."</center></td>
+			<td><center>".$data4[$i+85]."</center></td>
+			<td><center>".$data4[$i+86]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==12){
+		echo"
+			<tr>
+			<td>13</td>
+			<td><a href='WebTrendLine5PullRoll13.php'>Cooling Pump HCU 3</a></td>
+			<td><center>".$data4[$i+86]."</center></td>
+			<td><center>".$data4[$i+87]."</center></td>
+			<td><center>".$data4[$i+88]."</center></td>
+			<td><center>".$data4[$i+89]."</center></td>
+			<td><center>".$data4[$i+90]."</center></td>
+			<td><center>".$data4[$i+91]."</center></td>
+			<td><center>".$data4[$i+92]."</center></td>
+			<td><center>".$data4[$i+93]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==13){
+		echo"
+			<tr>
+			<td>14</td>
+			<td><a href='WebTrendLine5PullRoll14.php'>Oxon-Corona Exhaust Fan 1</a></td>
+			<td><center>".$data4[$i+93]."</center></td>
+			<td><center>".$data4[$i+94]."</center></td>
+			<td><center>".$data4[$i+95]."</center></td>
+			<td><center>".$data4[$i+96]."</center></td>
+			<td><center>".$data4[$i+97]."</center></td>
+			<td><center>".$data4[$i+98]."</center></td>
+			<td><center>".$data4[$i+99]."</center></td>
+			<td><center>".$data4[$i+100]."</center></td>
+			</tr>
+			";
+		}
+		
+		elseif($i==14){
+		echo"
+			<tr>
+			<td>15</td>
+			<td><a href='WebTrendLine5PullRoll15.php'>Oxon-Corona Exhaust Fan 2</a></td>
+			<td><center>".$data4[$i+100]."</center></td>
+			<td><center>".$data4[$i+101]."</center></td>
+			<td><center>".$data4[$i+102]."</center></td>
+			<td><center>".$data4[$i+103]."</center></td>
+			<td><center>".$data4[$i+104]."</center></td>
+			<td><center>".$data4[$i+105]."</center></td>
+			<td><center>".$data4[$i+106]."</center></td>
+			<td><center>".$data4[$i+107]."</center></td>
+			</tr>
+			";
+		}
+		
+		elseif($i==15){
+		echo"
+			<tr>
+			<td>16</td>
+			<td><a href='WebTrendLine5PullRoll16.php'>Grinder-Exhaust Fan</a></td>
+			<td><center>".$data4[$i+107]."</center></td>
+			<td><center>".$data4[$i+108]."</center></td>
+			<td><center>".$data4[$i+109]."</center></td>
+			<td><center>".$data4[$i+110]."</center></td>
+			<td><center>".$data4[$i+111]."</center></td>
+			<td><center>".$data4[$i+112]."</center></td>
+			<td><center>".$data4[$i+113]."</center></td>
+			<td><center>".$data4[$i+114]."</center></td>
+			</tr>
+			";
+		}
+		
+		elseif($i==16){
+		echo"
+			<tr>
+			<td>17</td>
+			<td><a href='WebTrendLine5PullRoll117.php'>Grinder-Small Grinder</a></td>
+			<td><center>".$data4[$i+114]."</center></td>
+			<td><center>".$data4[$i+115]."</center></td>
+			<td><center>".$data4[$i+116]."</center></td>
+			<td><center>".$data4[$i+117]."</center></td>
+			<td><center>".$data4[$i+118]."</center></td>
+			<td><center>".$data4[$i+119]."</center></td>
+			<td><center>".$data4[$i+120]."</center></td>
+			<td><center>".$data4[$i+121]."</center></td>
+			</tr>
+			";
+		}
+		
+		elseif($i==17){
+		echo"
+			<tr>
+			<td>18</td>
+			<td><a href='WebTrendLine5PullRoll18.php'>Grinder-Flake Conveyor Fan</a></td>
+			<td><center>".$data4[$i+121]."</center></td>
+			<td><center>".$data4[$i+122]."</center></td>
+			<td><center>".$data4[$i+123]."</center></td>
+			<td><center>".$data4[$i+124]."</center></td>
+			<td><center>".$data4[$i+125]."</center></td>
+			<td><center>".$data4[$i+126]."</center></td>
+			<td><center>".$data4[$i+127]."</center></td>
+			<td><center>".$data4[$i+128]."</center></td>
+			</tr>
+			";
+		}
+		
+		elseif($i==18){
+		echo"
+			<tr>
+			<td>19</td>
+			<td><a href='WebTrendLine5PullRoll19.php'>Flame Treater Mixture Blower</a></td>
+			<td><center>".$data4[$i+128]."</center></td>
+			<td><center>".$data4[$i+129]."</center></td>
+			<td><center>".$data4[$i+130]."</center></td>
+			<td><center>".$data4[$i+131]."</center></td>
+			<td><center>".$data4[$i+132]."</center></td>
+			<td><center>".$data4[$i+133]."</center></td>
+			<td><center>".$data4[$i+134]."</center></td>
+			<td><center>".$data4[$i+135]."</center></td>
+			</tr>
+			";
+		}
+		
+		elseif($i==19){
+		echo"
+			<tr>
+			<td>20</td>
+			<td><a href='WebTrendLine5PullRoll20.php'>Corona Generator Room Temperature</a></td>
+			<td><center>".$data4[$i+135]."</center></td>
+			<td><center>".$data4[$i+136]."</center></td>
+			<td><center>".$data4[$i+137]."</center></td>
+			<td><center>".$data4[$i+138]."</center></td>
+			<td><center>".$data4[$i+139]."</center></td>
+			<td><center>".$data4[$i+140]."</center></td>
+			<td><center>".$data4[$i+141]."</center></td>
+			<td><center>".$data4[$i+142]."</center></td>
+			</tr>
+			";
+		}
+		
+		elseif($i==20){
+		echo"
+			<tr>
+			<td>21</td>
+			<td><a href='WebTrendLine5PullRoll21.php'>Heater HCU Zone 1</a></td>
+			<td><center>".$data4[$i+142]."</center></td>
+			<td><center>".$data4[$i+143]."</center></td>
+			<td><center>".$data4[$i+144]."</center></td>
+			<td><center>".$data4[$i+145]."</center></td>
+			<td><center>".$data4[$i+146]."</center></td>
+			<td><center>".$data4[$i+147]."</center></td>
+			<td><center>".$data4[$i+148]."</center></td>
+			<td><center>".$data4[$i+149]."</center></td>
+			</tr>
+			";
+		}
+		
+		elseif($i==21){
+		echo"
+			<tr>
+			<td>22</td>
+			<td><a href='WebTrendLine5PullRoll22.php'>Heater HCU Zone 2</a></td>
+			<td><center>".$data4[$i+149]."</center></td>
+			<td><center>".$data4[$i+150]."</center></td>
+			<td><center>".$data4[$i+151]."</center></td>
+			<td><center>".$data4[$i+152]."</center></td>
+			<td><center>".$data4[$i+153]."</center></td>
+			<td><center>".$data4[$i+154]."</center></td>
+			<td><center>".$data4[$i+155]."</center></td>
+			<td><center>".$data4[$i+156]."</center></td>
+			</tr>
+			";
+		}
+		
+		elseif($i==22){
+		echo"
+			<tr>
+			<td>23</td>
+			<td><a href='WebTrendLine5PullRoll23.php'>Heater HCU Zone 1-1</a></td>
+			<td><center>".$data4[$i+156]."</center></td>
+			<td><center>".$data4[$i+157]."</center></td>
+			<td><center>".$data4[$i+158]."</center></td>
+			<td><center>".$data4[$i+159]."</center></td>
+			<td><center>".$data4[$i+160]."</center></td>
+			<td><center>".$data4[$i+161]."</center></td>
+			<td><center>".$data4[$i+162]."</center></td>
+			<td><center>".$data4[$i+163]."</center></td>
+			</tr>
+			";
+		}
+		
+		elseif($i==23){
+		echo"
+			<tr>
+			<td>24</td>
+			<td><a href='WebTrendLine5PullRoll24.php'>Heater HCU Zone 1-2</a></td>
+			<td><center>".$data4[$i+163]."</center></td>
+			<td><center>".$data4[$i+164]."</center></td>
+			<td><center>".$data4[$i+165]."</center></td>
+			<td><center>".$data4[$i+166]."</center></td>
+			<td><center>".$data4[$i+167]."</center></td>
+			<td><center>".$data4[$i+168]."</center></td>
+			<td><center>".$data4[$i+169]."</center></td>
+			<td><center>".$data4[$i+170]."</center></td>
+			</tr>
+			";
+		}
+		
+		elseif($i==24){
+		echo"
+			<tr>
+			<td>25</td>
+			<td><a href='WebTrendLine5PullRoll25.php'>Heater HCU Zone 1-3</a></td>
+			<td><center>".$data4[$i+170]."</center></td>
+			<td><center>".$data4[$i+171]."</center></td>
+			<td><center>".$data4[$i+172]."</center></td>
+			<td><center>".$data4[$i+173]."</center></td>
+			<td><center>".$data4[$i+174]."</center></td>
+			<td><center>".$data4[$i+175]."</center></td>
+			<td><center>".$data4[$i+176]."</center></td>
+			<td><center>".$data4[$i+177]."</center></td>
+			</tr>
+			";
+		}
+		
+		elseif($i==25){
+		echo"
+			<tr>
+			<td>26</td>
+			<td><a href='WebTrendLine5PullRoll26.php'>Heater HCU Zone 2-3</a></td>
+			<td><center>".$data4[$i+177]."</center></td>
+			<td><center>".$data4[$i+178]."</center></td>
+			<td><center>".$data4[$i+179]."</center></td>
+			<td><center>".$data4[$i+180]."</center></td>
+			<td><center>".$data4[$i+181]."</center></td>
+			<td><center>".$data4[$i+182]."</center></td>
+			<td><center>".$data4[$i+183]."</center></td>
+			<td><center>".$data4[$i+184]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==26){
+		echo"
+			<tr>
+			<td>27</td>
+			<td><a href='WebTrendLine5PullRoll27.php'>Heater HCU Zone 2-4</a></td>
+			<td><center>".$data4[$i+184]."</center></td>
+			<td><center>".$data4[$i+185]."</center></td>
+			<td><center>".$data4[$i+186]."</center></td>
+			<td><center>".$data4[$i+187]."</center></td>
+			<td><center>".$data4[$i+188]."</center></td>
+			<td><center>".$data4[$i+189]."</center></td>
+			<td><center>".$data4[$i+190]."</center></td>
+			<td><center>".$data4[$i+191]."</center></td>
+			</tr>
+			";
+		}
+		elseif($i==27){
+		echo"
+			<tr>
+			<td>28</td>
+			<td><a href='WebTrendLine5PullRoll28.php'>Heater HCU zone 2-5</a></td>
+			<td><center>".$data4[$i+191]."</center></td>
+			<td><center>".$data4[$i+192]."</center></td>
+			<td><center>".$data4[$i+193]."</center></td>
+			<td><center>".$data4[$i+194]."</center></td>
+			<td><center>".$data4[$i+195]."</center></td>
+			<td><center>".$data4[$i+196]."</center></td>
+			<td><center>".$data4[$i+197]."</center></td>
+			<td><center>".$data4[$i+198]."</center></td>
+			</tr>
+			";
+		}
+		$i++;
+	}
+	
+	//
+	
+	echo'
+		<tr>
+		<th rowspan="2">No</th>
+		<th rowspan="2">Winder</th>
+		<th colspan="3">Vibrasi Motor</th>
+		<th rowspan="2">Temperature</th>
+		<th colspan="3">Arus</th>
+		<th rowspan="2">Keterangan</th>
+			<tr>
+			<th>DE</th>
+			<th>NDE Axial</th>
+			<th>NDE Radial</th>
+			<th>R</th>
+			<th>S</th>
+			<th>T</th>
+			</tr>
+		</tr>
+	';
+
+	$i=0;
+	while($i<=11)
+	{
+		if($i==0){
+			echo"
+			<tr>
+			<td>1</td>
+			<td><a href='WebTrendLine5Winder1.php'>DC Contact Roll</a></td>
+			<td><center>".$data5[$i+2]."</center></td>
+			<td><center>".$data5[$i+3]."</center></td>
+			<td><center>".$data5[$i+4]."</center></td>
+			<td><center>".$data5[$i+5]."</center></td>
+			<td><center>".$data5[$i+6]."</center></td>
+			<td><center>".$data5[$i+7]."</center></td>
+			<td><center>".$data5[$i+8]."</center></td>
+			<td><center>".$data5[$i+9]."</center></td>
+			</tr>
+			";
+		}
+		if($i==1){
+			echo"
+			<tr>
+			<td>2</td>
+			<td><a href='WebTrendLine5Winder2.php'>Contact-Roll Fan Cooling Blower</a></td>
+			<td><center>".$data5[$i+9]."</center></td>
+			<td><center>".$data5[$i+10]."</center></td>
+			<td><center>".$data5[$i+11]."</center></td>
+			<td><center>".$data5[$i+12]."</center></td>
+			<td><center>".$data5[$i+13]."</center></td>
+			<td><center>".$data5[$i+14]."</center></td>
+			<td><center>".$data5[$i+15]."</center></td>
+			<td><center>".$data5[$i+16]."</center></td>
+			</tr>
+			";
+		}
+		if($i==2){
+			echo"
+			<tr>
+			<td>3</td>
+			<td><a href='WebTrendLine5Winder3.php'>DC Turning</a></td>
+			<td><center>".$data5[$i+16]."</center></td>
+			<td><center>".$data5[$i+17]."</center></td>
+			<td><center>".$data5[$i+18]."</center></td>
+			<td><center>".$data5[$i+19]."</center></td>
+			<td><center>".$data5[$i+20]."</center></td>
+			<td><center>".$data5[$i+21]."</center></td>
+			<td><center>".$data5[$i+22]."</center></td>
+			<td><center>".$data5[$i+23]."</center></td>
+			</tr>
+			";
+		}
+		if($i==3){
+			echo"
+			<tr>
+			<td>4</td>
+			<td><a href='WebTrendLine5Winder4.php'>Turning Fan Cooling Blower</a></td>
+			<td><center>".$data5[$i+23]."</center></td>
+			<td><center>".$data5[$i+24]."</center></td>
+			<td><center>".$data5[$i+25]."</center></td>
+			<td><center>".$data5[$i+26]."</center></td>
+			<td><center>".$data5[$i+27]."</center></td>
+			<td><center>".$data5[$i+28]."</center></td>
+			<td><center>".$data5[$i+29]."</center></td>
+			<td><center>".$data5[$i+30]."</center></td>
+			</tr>
+			";
+		}
+		if($i==4){
+			echo"
+			<tr>
+			<td>5</td>
+			<td><a href='WebTrendLine5Winder5.php'>Cutting Arm Knife Horizontal</a></td>
+			<td><center>".$data5[$i+30]."</center></td>
+			<td><center>".$data5[$i+31]."</center></td>
+			<td><center>".$data5[$i+32]."</center></td>
+			<td><center>".$data5[$i+33]."</center></td>
+			<td><center>".$data5[$i+34]."</center></td>
+			<td><center>".$data5[$i+35]."</center></td>
+			<td><center>".$data5[$i+36]."</center></td>
+			<td><center>".$data5[$i+37]."</center></td>
+			</tr>
+			";
+		}
+		if($i==5){
+			echo"
+			<tr>
+			<td>6</td>
+			<td><a href='WebTrendLine5Winder6.php'>Cutting Arm Rotary Knife</a></td>
+			<td><center>".$data5[$i+37]."</center></td>
+			<td><center>".$data5[$i+38]."</center></td>
+			<td><center>".$data5[$i+39]."</center></td>
+			<td><center>".$data5[$i+40]."</center></td>
+			<td><center>".$data5[$i+41]."</center></td>
+			<td><center>".$data5[$i+42]."</center></td>
+			<td><center>".$data5[$i+43]."</center></td>
+			<td><center>".$data5[$i+44]."</center></td>
+			</tr>
+			";
+		}
+		if($i==6){
+			echo"
+			<tr>
+			<td>7</td>
+			<td><a href='WebTrendLine5Winder7.php'>DC Winder-A</a></td>
+			<td><center>".$data5[$i+44]."</center></td>
+			<td><center>".$data5[$i+45]."</center></td>
+			<td><center>".$data5[$i+46]."</center></td>
+			<td><center>".$data5[$i+47]."</center></td>
+			<td><center>".$data5[$i+48]."</center></td>
+			<td><center>".$data5[$i+49]."</center></td>
+			<td><center>".$data5[$i+50]."</center></td>
+			<td><center>".$data5[$i+51]."</center></td>
+			</tr>
+			";
+		}
+		if($i==7){
+			echo"
+			<tr>
+			<td>8</td>
+			<td><a href='WebTrendLine5Winder8.php'>Winder-A Fan Cooling Blower</a></td>
+			<td><center>".$data5[$i+51]."</center></td>
+			<td><center>".$data5[$i+52]."</center></td>
+			<td><center>".$data5[$i+53]."</center></td>
+			<td><center>".$data5[$i+54]."</center></td>
+			<td><center>".$data5[$i+55]."</center></td>
+			<td><center>".$data5[$i+56]."</center></td>
+			<td><center>".$data5[$i+57]."</center></td>
+			<td><center>".$data5[$i+58]."</center></td>
+			</tr>
+			";
+		}
+		if($i==8){
+			echo"
+			<tr>
+			<td>9</td>
+			<td><a href='WebTrendLine5Winder9.php'>DC Winder-B</a></td>
+			<td><center>".$data5[$i+58]."</center></td>
+			<td><center>".$data5[$i+59]."</center></td>
+			<td><center>".$data5[$i+60]."</center></td>
+			<td><center>".$data5[$i+61]."</center></td>
+			<td><center>".$data5[$i+62]."</center></td>
+			<td><center>".$data5[$i+63]."</center></td>
+			<td><center>".$data5[$i+64]."</center></td>
+			<td><center>".$data5[$i+65]."</center></td>
+			</tr>
+			";
+		}
+		if($i==9){
+			echo"
+			<tr>
+			<td>10</td>
+			<td><a href='WebTrendLine5Winder10.php'>Winder-B Fan Cooling Blower</a></td>
+			<td><center>".$data5[$i+65]."</center></td>
+			<td><center>".$data5[$i+66]."</center></td>
+			<td><center>".$data5[$i+67]."</center></td>
+			<td><center>".$data5[$i+68]."</center></td>
+			<td><center>".$data5[$i+69]."</center></td>
+			<td><center>".$data5[$i+70]."</center></td>
+			<td><center>".$data5[$i+71]."</center></td>
+			<td><center>".$data5[$i+72]."</center></td>
+			</tr>
+			";
+		}
+		if($i==10){
+			echo"
+			<tr>
+			<td>11</td>
+			<td><a href='WebTrendLine5Winder11.php'>Hydraulic Pump</a></td>
+			<td><center>".$data5[$i+72]."</center></td>
+			<td><center>".$data5[$i+73]."</center></td>
+			<td><center>".$data5[$i+74]."</center></td>
+			<td><center>".$data5[$i+75]."</center></td>
+			<td><center>".$data5[$i+76]."</center></td>
+			<td><center>".$data5[$i+77]."</center></td>
+			<td><center>".$data5[$i+78]."</center></td>
+			<td><center>".$data5[$i+79]."</center></td>
+			</tr>
+			";
+		}
+		if($i==11){
+			echo"
+			<tr>
+			<td>12</td>
+			<td><a href='WebTrendLine5Winder12.php'>Air Cushion Blower</a></td>
+			<td><center>".$data5[$i+79]."</center></td>
+			<td><center>".$data5[$i+80]."</center></td>
+			<td><center>".$data5[$i+81]."</center></td>
+			<td><center>".$data5[$i+82]."</center></td>
+			<td><center>".$data5[$i+83]."</center></td>
+			<td><center>".$data5[$i+84]."</center></td>
+			<td><center>".$data5[$i+85]."</center></td>
+			<td><center>".$data5[$i+86]."</center></td>
+			</tr>
+			";
+		}
+		$i++;
+	}
+	
+?>
+</table>
+
+<form method="POST" action="WebTampilanCheckLine7.php">
+<br><input type="submit" name="Check" value="Check">
+</form>
+
+<form method="POST" action="MainPageTab.php">
+<br><input type="submit" name="mainpagetab" value="Main Page">
+</form>
+
+</body>
+</html>

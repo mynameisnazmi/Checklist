@@ -1,0 +1,35 @@
+.box .number {
+    padding: 5px 10px;
+    margin: 1px;
+    background-color: white;
+    color: #09c;
+    border: #09c 1px solid;
+}
+.box a{padding: 5px;
+    margin-left: 5px;
+    background-color: white;
+    color:#09c;
+    text-decoration: none;
+    border: solid #09c 1px;
+    width: 14vw;
+    margin-bottom: 5px;
+}
+.box a:hover {
+    color: white;
+    background-color: #09c;
+    border: white;
+}
+.box{
+    width: 65vw;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+#content{
+	position:absolute;
+	left:55%;
+	transform : translate(-50%,0%);
+	margin-top:20px;	
+}
+#headerr{
+	margin-left:5vw;}

@@ -1,0 +1,102 @@
+	.head{
+		font-family: Arial, Helvetica, sans-serif;
+		width: 500px;
+
+	}
+	.inp{
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 20px;
+		padding: 5px;
+		text-align: center;
+		color: #0000cc;
+	}
+	.submit{
+		position: absolute;
+		left: 2300px;
+		font-size: 20px;
+		text-decoration: none;
+		transition-duration: 0.1s;
+		background-color: white;
+		color: black;
+		border: 3px solid #007399;
+		text-align: center;
+		border-radius: 15px;
+		float: center;
+		padding: 4px;
+		width: 150px;
+		display: inline-block;
+		cursor: pointer;
+	}
+	.submit:hover{
+		background-color: #007399;
+		color: white;
+	}
+	#chk {
+	padding: 5px;
+}
+	.res {
+		position: absolute;
+		left: 130px;
+		font-size: 20px;
+		text-decoration: none;
+		background-color: white;
+		color: black;
+		border: 2px solid #007399;
+		text-align: center;
+		border-radius: 8px;
+		margin: 1px;
+		float: center;
+		padding: 4px;
+		width: 150px;
+		display: inline-block;
+		cursor: pointer;
+		transition-duration: 0.1s;
+	}
+	.res:hover{
+		border: #ff1a1a solid;
+		background-color: #ff1a1a;
+		color: white;
+	}
+	.main{
+		position: absolute;
+		left: 130px;
+		font-size: 20px;
+		text-decoration: none;
+		background-color: white;
+		color: black;
+		border: 2px solid #007399;
+		text-align: center;
+		border-radius: 8px;
+		margin: 1px;
+		float: center;
+		padding: 4px;
+		width: 150px;
+		display: inline-block;
+		cursor: pointer;
+		transition-duration: 0.1s;
+	}
+	.main:hover{
+		border: #e6b800 solid;
+		background-color: #e6b800;
+		color: white;
+	}
+	table{
+		font-family: Arial, Helvetica, sans-serif;
+		border: outset 4px black;
+
+	}
+
+	table th{
+		font-size: 18px;
+		margin: auto;
+		border: 1px solid  ;
+		padding: 3px;
+
+	}
+	table td {
+		font-size: 15px;
+		padding: 5px;
+		text-align: center;
+		margin: auto;
+		border: 1px solid  ;
+	}
